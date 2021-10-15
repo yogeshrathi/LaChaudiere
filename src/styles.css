@@ -1,1 +1,168 @@
-/* You can add global styles to this file, and also import other style files */
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Muli';
+    src: url('../src/assets/fonts/Muli-500B.eot');
+    src: url('../src/assets/fonts/Muli-500B.eot?#iefix') format('embedded-opentype'),
+        url('../src/assets/fonts/Muli-500B.woff2') format('woff2'),
+        url('../src/assets/fonts/Muli-500B.woff') format('woff'),
+        url('../src/assets/fonts/Muli-500B.ttf') format('truetype'),
+        url('../src/assets/fonts/Muli-500B.svg#Muli-500B') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Muli';
+    src: url('../src/assets/fonts/Muli-Light.eot');
+    src: url('../src/assets/fonts/Muli-Light.eot?#iefix') format('embedded-opentype'),
+        url('../src/assets/fonts/Muli-Light.woff2') format('woff2'),
+        url('../src/assets/fonts/Muli-Light.woff') format('woff'),
+        url('../src/assets/fonts/Muli-Light.ttf') format('truetype'),
+        url('../src/assets/fonts/Muli-Light.svg#Muli-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Muli';
+    src: url('../src/assets/fonts/Muli-Bold.eot');
+    src: url('../src/assets/fonts/Muli-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../src/assets/fonts/Muli-Bold.woff2') format('woff2'),
+        url('../src/assets/fonts/Muli-Bold.woff') format('woff'),
+        url('../src/assets/fonts/Muli-Bold.ttf') format('truetype'),
+        url('../src/assets/fonts/Muli-Bold.svg#Muli-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Muli';
+    src: url('../src/assets/fonts/Muli-BoldItalic.eot');
+    src: url('../src/assets/fonts/Muli-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../src/assets/fonts/Muli-BoldItalic.woff2') format('woff2'),
+        url('../src/assets/fonts/Muli-BoldItalic.woff') format('woff'),
+        url('../src/assets/fonts/Muli-BoldItalic.ttf') format('truetype'),
+        url('../src/assets/fonts/Muli-BoldItalic.svg#Muli-BoldItalic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Muli';
+    src: url('../src/assets/fonts/Muli.eot');
+    src: url('../src/assets/fonts/Muli.eot?#iefix') format('embedded-opentype'),
+        url('../src/assets/fonts/Muli.woff2') format('woff2'),
+        url('../src/assets/fonts/Muli.woff') format('woff'),
+        url('../src/assets/fonts/Muli.ttf') format('truetype'),
+        url('../src/assets/fonts/Muli.svg#Muli') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*
+font-family: 'Muli';
+*/
+
+html {-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;overflow-x: hidden;}
+body {-webkit-font-smoothing: antialiased;margin: 0;padding: 0; font-family: 'Muli'; font-size: 14px; font-weight: normal; position: relative; color: #212B36;}
+*, *:before, *:after {box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; outline: none;}
+img, span {border: none;}
+img {max-width: 100%; height: auto; vertical-align: top;}
+a { color: #0832C8; text-decoration: none; -moz-transition: all 0.5s; -webkit-transition: all 0.5s; transition: all 0.5s;}
+a:hover { text-decoration:none; color: #000000; outline:none;}
+p {margin: 0 0 20px 0;}
+h1 {font-size: 30px;line-height: 40px;font-weight: bold; margin: 0 0 15px 0;}
+h2 {font-size: 20px; line-height: 28px; margin: 0 0 15px 0;}
+.text-center {text-align: center;}
+.bg-cover {background-size: cover !important; background-position: center center !important; background-repeat: no-repeat !important;}
+.container {margin: 0 auto; padding:0 20px; max-width: 940px; width: 100%;}
+
+.d-flex {-ms-box-orient: horizontal; display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -moz-flex;display: -webkit-flex;display: flex;}
+.flex-wrap {-webkit-flex-flow: row wrap; flex-flow: row wrap;}
+.m-auto {margin: auto;}
+.clear {clear: both;}
+
+.site-header .top-row {background: #E21F26;padding: 6px 0;}
+.site-header .top-row .ct-row {justify-content: flex-end;}
+.site-header .top-row .ct-row a {color: #FFFFFF;font-size: 12px;}
+.site-header .top-row .ct-row a:hover {text-decoration: underline;}
+.main-menu .ct-row {padding: 20px 0;align-items: center;}
+.main-menu .ct-row .logo {width: 135px;}
+.main-menu .ct-row .menu {width: calc(100% - 135px);padding: 0 0 0 20px;}
+.main-menu .ct-row .menu ul {list-style: none;padding: 0;margin: 0;display: flex;flex-flow: row wrap;justify-content: flex-end;}
+.main-menu .ct-row .menu ul li {margin: 0 0 0 28px;}
+.main-menu .ct-row .menu ul li a {color: #E21F26;font-size: 14px;font-weight: bold;padding: 0 0 4px 0;position: relative;}
+.main-menu .ct-row .menu ul li.active a,
+.main-menu .ct-row .menu ul li a:hover {color: #112111;}
+.main-menu .ct-row .menu ul li.active a:after,
+.main-menu .ct-row .menu ul li a:after {content: '';position: absolute;left: 0;right: 0;margin: auto;background: #E21F26;width: 0;height: 2px;bottom: 0;transition: 400ms ease all;}
+.main-menu .ct-row .menu ul li.active a:after,
+.main-menu .ct-row .menu ul li a:hover:after {width: 100%;}
+
+.site-footer {background: #FAF9F7;color: #AFABA3;font-size: 12px;line-height: 16px;padding: 20px 0;}
+.site-footer p {margin: 0;}
+
+.form-section {margin: 50px 0;}
+.form-section .wrap {max-width: 600px;}
+.form-section .title {border-bottom: 1px solid #EBEBEB;margin: 0 0 22px 0;}
+.form-section .title h2 {margin: 0;color: #102111;font-weight: normal;padding: 0 0 12px 0;}
+.form-section .note {margin: 0 0 20px 0;}
+.common-form .field-row {display: flex;flex-flow: row wrap;margin: 0 -20px;}
+.common-form .field-row .field-group {width: 50%;padding: 0 20px;margin: 0 0 20px 0; position: relative;}
+.common-form .field-row .field-group.field-error .error-span {position: absolute;right: 20px;top: 0;color: #E21F26;font-size: 12px;line-height: 16px;}
+.common-form .field-row .field-group.field-error input {border-color: #E21F26;}
+.common-form .field-row .field-group label {display: block;font-weight: bold;margin: 0 0 5px 0;}
+.common-form .field-row .field-group input {width: 100%;border: 1px solid #EBEBEB;border-radius: 0;font-family: 'Muli';padding: 7px 14px;line-height: 20px;}
+.common-form .bottom-row {display: flex;flex-flow: row wrap;align-items: center;}
+.common-form .bottom-row input[type="submit"] {display: inline-block;margin-left: auto;border: 2px solid #E21F26;min-width: 92px;border-radius: 3px;color: #E21F26;background: transparent;font-size: 14px;line-height: 20px;padding: 6px 20px;cursor: pointer; transition: 400ms ease all;}
+.common-form .bottom-row input[type="submit"]:hover {background: #E21F26; color: #fff;}
+.common-form .bottom-row .forgot-link a {color: #E21F26;font-size: 12px;font-weight: bold;}
+.common-form .bottom-row .forgot-link a:hover {color: #212B36;}
+
+
+.nav-toggle {margin: 0;padding: 0;width: 36px;height: 30px;display: none;cursor: pointer;position: relative;float: right;z-index: 9;background: transparent;}
+.nav-toggle i, .nav-toggle i:after, .nav-toggle i:before {background-color: #e21f26;position: absolute;width:35px;height:3px;transition-timing-function: ease;transition-duration: .3s;transition-property: transform;border-radius: 5px; left: 0; right: 0; margin: auto;}
+.nav-toggle i {transition-timing-function: cubic-bezier(.55,.055,.675,.19);transition-duration: 300ms;left: 0;top: 50%;display: block;margin-top: 0;}
+.nav-toggle i:after, .nav-toggle i:before {display: block;content: "";}
+.nav-toggle i:before {top: -9px;transition: top 300ms ease .15s,opacity 300ms ease;}
+.nav-toggle i:after {bottom: -9px;transition: bottom 300ms ease .15s,transform 300ms cubic-bezier(.55,.055,.675,.19);}
+.menu-open .nav-toggle i {transition-delay: .12s;transition-timing-function: cubic-bezier(.215,.61,.355,1);transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}
+.menu-open .nav-toggle i:before {top: 0;transition: top 300ms ease,opacity 300ms ease .15s;opacity: 0;}
+.menu-open .nav-toggle i:after {bottom: 0;transition: bottom 300ms ease,transform 300ms cubic-bezier(.215,.61,.355,1) .15s;transform: rotate(-90deg);}
+
+.portail-block {padding: 70px 0;}
+.portail-block .title-row {max-width: 600px;margin: auto;border-bottom: 1px solid #EBEBEB;}
+.portail-block .title-row h2 {font-weight: normal;}
+.portail-block .listing {margin: 0 -20px;}
+.portail-block .listing .box {width: 50%;padding: 0 20px;margin: 22px 0 0 0;}
+.portail-block .listing .box .inside {border: 1px solid #EBEBEB;padding: 20px;text-align: center;}
+.portail-block .wrap {max-width: 600px;margin: auto;}
+.portail-block .listing .box .inside h3 {font-size: 18px;line-height: 20px;margin: 2px 0 40px 0; font-weight: normal;}
+.portail-block .listing .box .inside .border-btn {display: inline-block;margin-left: auto;border: 2px solid #E21F26;min-width: 92px;border-radius: 3px;color: #E21F26;background: transparent;font-size: 14px;line-height: 20px;padding: 6px 20px;cursor: pointer;transition: 400ms ease all;}
+.portail-block .listing .box .inside .border-btn:hover {background: #E21F26; color: #fff;}
+
+.my-information {padding: 50px 0;}
+.my-information .wrap {max-width: 600px;margin: auto;}
+.my-information .title-row {max-width: 600px;margin: auto;border-bottom: 1px solid #EBEBEB; margin-bottom: 22px;}
+.my-information .title-row h2 {font-weight: normal;}
+.my-information .title-row .client-id {color: #E21F26;}
+.my-information .common-form + .title-row {margin-top: 50px;}
+
+
+@media screen and (max-width: 767px) {
+    .common-form .field-row .field-group {width: 100%;}
+    .nav-toggle {display: block; margin-left: auto;}
+    .main-menu .ct-row {padding: 12px 0; position: relative;}
+    .main-menu .ct-row .menu {padding: 0;position: absolute;left: 0;top: 100%;right: 0;width: 100%;background: #fff;z-index: 999;}
+    .main-menu .ct-row .menu ul li {width: 100%;margin: 0 0 15px 0;}
+    .main-menu .ct-row .menu {position: absolute;left: -20px;top: 100%;right: 0;width: calc(100% + 40px);background: #fff;z-index: 999;box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.15);padding: 0 20px; display: none;}
+    .menu-open .main-menu .ct-row .menu {display: block;}
+    .form-section .note {font-size: 12px;}
+    .portail-block .listing .box {width: 100%;}
+}/* You can add global styles to this file, and also import other style files */
