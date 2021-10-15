@@ -26,7 +26,5 @@ export class LoginComponent implements OnInit {
   
   forgetPassword = () => {}
 
-  login = (e: Event) => {
-    e.preventDefault();
-  }
+  login = () => {}
 }
