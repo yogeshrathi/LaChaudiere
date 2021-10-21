@@ -4,8 +4,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     HeaderComponent,
