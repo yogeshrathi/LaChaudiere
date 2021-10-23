@@ -1,52 +1,71 @@
 <app-header></app-header>
 <section class="form-section">
-    <div class="container">
-       <div class="wrap m-auto">
-          <div class="title">
-             <h2>Login</h2>
-          </div>
-          <div class="note">To log into your account, please enter your client ID and password</div>
-          <form class="common-form"  #f="ngForm" [formGroup]="loginForm">
-             <div class="field-row">
-                <div class="field-group">
-                   <label>Client ID</label>
-                   <input type="text" formControlName="clientId" name="" required="">
-                </div>
-                <div class="field-group">
-                   <label>Client Password</label>
-                   <input type="password" formControlName="clientPassword" name="" required="">
-                </div>
-             </div>
-             <div class="bottom-row">
-                <div class="forgot-link">
-                   <a href="javascript: void(0)" (click)="forgetPassword()">Forget your password</a>
-                </div>
-                <input type="submit" name="" value="Login" (click)="login()">
-             </div>
-          </form>
-       </div>
-    </div>
- </section>
+  <div class="container">
+    <div class="wrap m-auto">
+      <div class="title">
+        <h2>Login</h2>
+      </div>
+      <div class="note">To log into your account, please enter your client ID and password</div>
+      <form class="common-form" [formGroup]="loginForm" name="loginForm">
+        <div class="field-row">
+          <div class="field-group">
+            <label>Client ID</label>
+            <input type="text" formControlName="clientId" name="clientId" required>
+            <div *ngIf="f.clientId.invalid && (f.clientId.dirty || f.clientId.touched)"
+              class="cross-validation-error-message">
+              <div *ngIf="f.clientId.errors?.required" class="form-text text-danger">
+                Client ID is required.
+              </div>
+            </div>
 
- <section class="form-section">
-    <div class="container">
-       <div class="wrap m-auto">
-          <div class="title">
-             <h2>Generate password</h2>
           </div>
-          <div class="note">You do not have a password, please enter your client ID and click send</div>
-          <form class="common-form">
-             <div class="field-row">
-                <div class="field-group">
-                   <label>Client ID</label>
-                   <input type="text" name="" required="">
-                </div>
-             </div>
-             <div class="bottom-row">
-                <input type="submit" name="" value="Send">
-             </div>
-          </form>
-       </div>
+          <div class="field-group">
+            <label>Client Password</label>
+            <input type="password" formControlName="clientPassword" name="clientPassword" required>
+            <div *ngIf="f.clientPassword.invalid && (f.clientPassword.dirty || f.clientPassword.touched)"
+              class="cross-validation-error-message">
+              <div *ngIf="f.clientPassword.errors?.required" class="form-text text-danger">
+                Client Paswword is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-row">
+          <div class="forgot-link">
+            <a href="javascript: void(0)">Forget your password</a>
+          </div>
+          <input type="submit" name="" value="Login" (click)="login()">
+        </div>
+      </form>
     </div>
- </section>
+  </div>
+</section>
+
+<section class="form-section">
+  <div class="container">
+    <div class="wrap m-auto">
+      <div class="title">
+        <h2>Generate password</h2>
+      </div>
+      <div class="note">You do not have a password, please enter your client ID and click send</div>
+      <form class="common-form" [formGroup]="generatePasswordForm" name="generatePasswordForm">
+        <div class="field-row">
+          <div class="field-group">
+            <label>Client ID</label>
+            <input type="text" formControlName="clientId" name="clientId" required>
+            <div *ngIf="g.clientId.invalid && (g.clientId.dirty || g.clientId.touched)"
+              class="cross-validation-error-message">
+              <div *ngIf="g.clientId.errors?.required" class="form-text text-danger">
+                ClientID is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bottom-row">
+          <input type="submit" name="" value="send" (click)="generatePassword()">
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 <app-footer></app-footer>

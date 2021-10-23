@@ -11,7 +11,11 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   login(payload: any): Observable<any> {
-    return this.http.post<any>(`${environment.baseApiUrl}/google_login/`, payload);
+    return this.http.post<any>(`${environment.baseApiUrl}auth/signin`, payload);
+  }
+
+  generatePwd(payload: any): Observable<any> {
+    return this.http.post<any>(`${environment.baseApiUrl}auth/signin`, payload);
   }
 
 }
