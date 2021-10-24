@@ -11,6 +11,10 @@ export const routes: Routes = [
     component: HomeComponent,
     children: [
       {
+        path: '',
+        redirectTo: 'portal'
+      },
+      {
         path: 'portal',
         component: PortalComponent
       },

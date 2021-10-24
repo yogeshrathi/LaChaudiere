@@ -22,4 +22,12 @@ export class UserService {
     public forgetPassword(body: any): Observable<any> {
         return this.httpClient.post(`${environment.apiUrl}auth/forgotpassword`, body);
     }
+
+    public getUserInfo(): Observable<any> {
+        return this.httpClient.get(`${environment.apiUrl}user`);
+    }
+
+    public updateUserInfo(body: any) : Observable<any>{
+        return this.httpClient.post(`${environment.apiUrl}user`, body);
+    }
 }

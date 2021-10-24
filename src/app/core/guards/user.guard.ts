@@ -13,13 +13,22 @@ export class UserGuard implements CanActivate {
     }
 
     canActivate(): boolean {
-        const token = this.storageService.getCookie("token");
-        if (!token) {
-            this.router.navigate(['login']);
-            return false;
+        const token = localStorage.getItem("token");
+        if (token) {
+            return true;
         }
         else {
-            this.router.navigate(['home/portal']);
+            this.router.navigate(['/']);
+            return false;
+        }
+    }
+    canActivateChild(): boolean {
+        const token = localStorage.getItem("token");
+        if (token) {
+            return true;
+        }
+        else {
+            this.router.navigate(['/']);
             return true;
         }
     }
