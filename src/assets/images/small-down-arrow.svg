@@ -1,0 +1,13 @@
+<svg id="icons_dark_caret-bottom" data-name="icons/dark/caret-bottom" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8" height="4" viewBox="0 0 8 4">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Mask" d="M0,0,4,4,8,0Z" fill="#212b36"/>
+    </clipPath>
+  </defs>
+  <path id="Mask-2" data-name="Mask" d="M0,0,4,4,8,0Z" fill="#212b36"/>
+  <g id="icons_dark_caret-bottom-2" data-name="icons/dark/caret-bottom" clip-path="url(#clip-path)">
+    <g id="Color" transform="translate(-5 -7)">
+      <rect id="color_main" data-name="color/main" width="18" height="18" rx="4" fill="#212b36"/>
+    </g>
+  </g>
+</svg>

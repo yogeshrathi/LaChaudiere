@@ -1,27 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
+import { SubscriptionDisposer } from 'src/app/shared/helpers/subscription-disposer';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  
+export class LoginComponent extends SubscriptionDisposer implements OnInit {
+
+
+  //Variables
   loginForm = new FormGroup({
-    clientId: new FormControl(undefined, [Validators.required]),
-    clientPassword: new FormControl(undefined, [Validators.required]),
+    clientId: new FormControl("", [Validators.required]),
+    clientPassword: new FormControl("", [Validators.required]),
   });
 
   generatePasswordForm = new FormGroup({
-    clientId: new FormControl(undefined, [Validators.required]),
+    clientId: new FormControl("", [Validators.required]),
   });
 
   isLoginSubmitted = false;
   isSubmitted = false;
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) { 
+    super();
+  }
 
+  //Functions
   ngOnInit(): void {
   }
 

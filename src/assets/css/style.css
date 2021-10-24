@@ -2,12 +2,12 @@
 
 @font-face {
     font-family: 'Muli';
-    src: url('../src/assets/fonts/Muli-500B.eot');
-    src: url('../src/assets/fonts/Muli-500B.eot?#iefix') format('embedded-opentype'),
-        url('../src/assets/fonts/Muli-500B.woff2') format('woff2'),
-        url('../src/assets/fonts/Muli-500B.woff') format('woff'),
-        url('../src/assets/fonts/Muli-500B.ttf') format('truetype'),
-        url('../src/assets/fonts/Muli-500B.svg#Muli-500B') format('svg');
+    src: url('../fonts/Muli-500B.eot');
+    src: url('../fonts/Muli-500B.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Muli-500B.woff2') format('woff2'),
+        url('../fonts/Muli-500B.woff') format('woff'),
+        url('../fonts/Muli-500B.ttf') format('truetype'),
+        url('../fonts/Muli-500B.svg#Muli-500B') format('svg');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -15,12 +15,12 @@
 
 @font-face {
     font-family: 'Muli';
-    src: url('../src/assets/fonts/Muli-Light.eot');
-    src: url('../src/assets/fonts/Muli-Light.eot?#iefix') format('embedded-opentype'),
-        url('../src/assets/fonts/Muli-Light.woff2') format('woff2'),
-        url('../src/assets/fonts/Muli-Light.woff') format('woff'),
-        url('../src/assets/fonts/Muli-Light.ttf') format('truetype'),
-        url('../src/assets/fonts/Muli-Light.svg#Muli-Light') format('svg');
+    src: url('../fonts/Muli-Light.eot');
+    src: url('../fonts/Muli-Light.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Muli-Light.woff2') format('woff2'),
+        url('../fonts/Muli-Light.woff') format('woff'),
+        url('../fonts/Muli-Light.ttf') format('truetype'),
+        url('../fonts/Muli-Light.svg#Muli-Light') format('svg');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -28,12 +28,12 @@
 
 @font-face {
     font-family: 'Muli';
-    src: url('../src/assets/fonts/Muli-Bold.eot');
-    src: url('../src/assets/fonts/Muli-Bold.eot?#iefix') format('embedded-opentype'),
-        url('../src/assets/fonts/Muli-Bold.woff2') format('woff2'),
-        url('../src/assets/fonts/Muli-Bold.woff') format('woff'),
-        url('../src/assets/fonts/Muli-Bold.ttf') format('truetype'),
-        url('../src/assets/fonts/Muli-Bold.svg#Muli-Bold') format('svg');
+    src: url('../fonts/Muli-Bold.eot');
+    src: url('../fonts/Muli-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Muli-Bold.woff2') format('woff2'),
+        url('../fonts/Muli-Bold.woff') format('woff'),
+        url('../fonts/Muli-Bold.ttf') format('truetype'),
+        url('../fonts/Muli-Bold.svg#Muli-Bold') format('svg');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -41,12 +41,12 @@
 
 @font-face {
     font-family: 'Muli';
-    src: url('../src/assets/fonts/Muli-BoldItalic.eot');
-    src: url('../src/assets/fonts/Muli-BoldItalic.eot?#iefix') format('embedded-opentype'),
-        url('../src/assets/fonts/Muli-BoldItalic.woff2') format('woff2'),
-        url('../src/assets/fonts/Muli-BoldItalic.woff') format('woff'),
-        url('../src/assets/fonts/Muli-BoldItalic.ttf') format('truetype'),
-        url('../src/assets/fonts/Muli-BoldItalic.svg#Muli-BoldItalic') format('svg');
+    src: url('../fonts/Muli-BoldItalic.eot');
+    src: url('../fonts/Muli-BoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Muli-BoldItalic.woff2') format('woff2'),
+        url('../fonts/Muli-BoldItalic.woff') format('woff'),
+        url('../fonts/Muli-BoldItalic.ttf') format('truetype'),
+        url('../fonts/Muli-BoldItalic.svg#Muli-BoldItalic') format('svg');
     font-weight: bold;
     font-style: italic;
     font-display: swap;
@@ -54,12 +54,12 @@
 
 @font-face {
     font-family: 'Muli';
-    src: url('../src/assets/fonts/Muli.eot');
-    src: url('../src/assets/fonts/Muli.eot?#iefix') format('embedded-opentype'),
-        url('../src/assets/fonts/Muli.woff2') format('woff2'),
-        url('../src/assets/fonts/Muli.woff') format('woff'),
-        url('../src/assets/fonts/Muli.ttf') format('truetype'),
-        url('../src/assets/fonts/Muli.svg#Muli') format('svg');
+    src: url('../fonts/Muli.eot');
+    src: url('../fonts/Muli.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Muli.woff2') format('woff2'),
+        url('../fonts/Muli.woff') format('woff'),
+        url('../fonts/Muli.ttf') format('truetype'),
+        url('../fonts/Muli.svg#Muli') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -154,6 +154,53 @@ h2 {font-size: 20px; line-height: 28px; margin: 0 0 15px 0;}
 .my-information .title-row .client-id {color: #E21F26;}
 .my-information .common-form + .title-row {margin-top: 50px;}
 
+.place-order-block {padding: 30px 0 100px 0;}
+.place-order-block .top-row {border-bottom: 1px solid #EBEBEB;margin: 0 0 20px 0; display: flex; justify-content: space-between; align-items: center; padding: 0 0 8px 0;}
+.place-order-block .top-row h3 {color: #102111;font-size: 20px;line-height: 28px;margin: 0; font-weight: normal;}
+.place-order-block .top-row form input {border: 1px solid #EBEBEB;min-width: 280px;color: #212B36;padding: 9px 12px;font-size: 14px;}
+.po-data-table {border: 1px solid #EBEBEB;}
+.po-data-table .pod-heading-row {display: flex;background: #E21F26;}
+.po-data-table .pod-heading-row .po-col {color: #fff;font-size: 16px;line-height: 24px;padding: 15px 20px;}
+.po-data-table .pod-heading-row .po-col.number {width: 20%;}
+.po-data-table .pod-heading-row .po-col.name {width: 25%;}
+.po-data-table .pod-heading-row .po-col.img {width: 17%;}
+.po-data-table .pod-heading-row .po-col.qty {width: 17%;}
+.po-data-table .pod-heading-row .po-col.action {width: 21%;}
+
+.po-data-table .pod-data-row {display: flex; border-top: 1px solid #EBEBEB; align-items: center;}
+.po-data-table .pod-data-row .po-col {font-size: 14px;line-height: 20px;padding: 10px 20px;}
+.po-data-table .pod-data-row .po-col span {display: none;}
+.po-data-table .pod-data-row .po-col.number {width: 20%;}
+.po-data-table .pod-data-row .po-col.name {width: 25%;}
+.po-data-table .pod-data-row .po-col.img {width: 17%;}
+.po-data-table .pod-data-row .po-col.qty {width: 17%;}
+.po-data-table .pod-data-row .po-col.action {width: 21%;}
+.po-data-table .pod-data-row .po-col.img img {max-width: 32px;max-height: 40px;}
+.po-data-table .pod-data-row .po-col.action a {color: #E21F26;font-size: 13px;font-weight: bold;}
+.po-data-table .pod-data-row .po-col.action a:hover {color: #212B36;}
+.place-order-block .bottom-btn {margin: 30px 0 0 0;text-align: right;}
+.place-order-block .bottom-btn a {display: inline-block; border: 2px solid #E21F26;min-width: 92px;border-radius: 3px;color: #E21F26;background: transparent;font-size: 14px;line-height: 20px;padding: 6px 20px;cursor: pointer; transition: 400ms ease all;}
+.place-order-block .bottom-btn a:hover {background: #E21F26; color: #fff;}
+.qtybox {width: 60px;position: relative; border: 1px solid #EBEBEB;}
+.qtybox input {border: none;border-right: 1px solid #EBEBEB;width: 40px;height: 35px;padding: 3px;text-align: center;}
+.qtybox #sub {position: absolute;right: 0;border: none;padding: 0;width: 20px;background: transparent url(../images/small-down-arrow.svg) no-repeat center;font-size: 0;transform: rotate(180deg);cursor: pointer;height: 16px;top: 2px;}
+.qtybox #add {position: absolute;right: 0;bottom: 2px;border: none;padding: 0;width: 20px;height: 16px;background: transparent url(../images/small-down-arrow.svg) no-repeat center;font-size: 0;cursor: pointer;}
+
+.qtybox input::-webkit-outer-spin-button,
+.qtybox input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.qtybox input[type=number] {
+  -moz-appearance: textfield;
+}
+.site-header .top-row .ct-row .logout {margin: 0 0 0 15px;}
+
+
+@media screen and (max-width: 991px) {
+    .po-data-table .pod-heading-row .po-col {font-size: 14px; padding: 15px 12px;}
+    .po-data-table .pod-data-row .po-col {padding: 8px 10px;}
+}
 
 @media screen and (max-width: 767px) {
     .common-form .field-row .field-group {width: 100%;}
@@ -165,5 +212,13 @@ h2 {font-size: 20px; line-height: 28px; margin: 0 0 15px 0;}
     .menu-open .main-menu .ct-row .menu {display: block;}
     .form-section .note {font-size: 12px;}
     .portail-block .listing .box {width: 100%;}
-}/* You can add global styles to this file, and also import other style files */
-
+    .po-data-table .pod-heading-row .po-col {font-size: 0; padding: 0; height: 35px;}
+    .po-data-table .pod-data-row {flex-flow: row wrap; padding: 10px 0;}
+    .place-order-block .top-row {flex-flow: row wrap; border: none; margin: 0 0 10px 0;}
+    .place-order-block .top-row h3 {width: 100%;border-bottom: 1px solid #EBEBEB;margin: 0 0 15px 0;padding: 0 0 8px 0;font-size: 16px;}
+    .place-order-block .top-row form input {width: 100%;}
+    .place-order-block .top-row form {width: 100%;}
+    .po-data-table .pod-data-row .po-col {width: 100% !important;padding: 5px 20px;font-size: 12px; display: flex; align-items: center;}
+    .po-data-table .pod-data-row .po-col span {display: block;min-width: 115px;padding: 0 10px 0 0;}
+    .place-order-block {padding: 20px 0 60px 0;}
+}
