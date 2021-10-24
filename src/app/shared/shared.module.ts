@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    RouterModule
   ], exports:  [
     HeaderComponent,
     FooterComponent,

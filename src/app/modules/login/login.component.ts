@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { GeneralService } from 'src/app/core/services/general.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { SubscriptionDisposer } from 'src/app/shared/helpers/subscription-disposer';
 
@@ -10,7 +11,7 @@ import { SubscriptionDisposer } from 'src/app/shared/helpers/subscription-dispos
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent extends SubscriptionDisposer implements OnInit {
+export class LoginComponent extends SubscriptionDisposer implements OnInit, OnDestroy {
 
 
   //Variables
@@ -28,7 +29,8 @@ export class LoginComponent extends SubscriptionDisposer implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private generalService: GeneralService
   ) {
     super();
   }
@@ -38,6 +40,7 @@ export class LoginComponent extends SubscriptionDisposer implements OnInit {
     // if (localStorage.getItem('token')) {
     //   this.router.navigate(['/home'])
     // }
+    this.generalService.hideLinks = true;
   }
 
   generatePassword = () => { }
@@ -70,5 +73,9 @@ export class LoginComponent extends SubscriptionDisposer implements OnInit {
         this.toastr.error('Please enter valid credentials');
       })
     }
+  }
+
+  ngOnDestroy(): void {
+    this.generalService.hideLinks = false;
   }
 }

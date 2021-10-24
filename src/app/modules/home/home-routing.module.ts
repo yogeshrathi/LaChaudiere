@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
 import { HomeComponent } from './home.component';
 import { InformationComponent } from './information/information.component';
 import { PortalComponent } from './portal/portal.component';
@@ -25,6 +26,9 @@ export const routes: Routes = [
       {
         path: 'products',
         component: ProductsComponent
+      },{
+        path: 'confirm-order',
+        component: ConfirmOrderComponent
       }]
   }
 ];

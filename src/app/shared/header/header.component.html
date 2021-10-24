@@ -6,7 +6,7 @@
           </div>
        </div>
     </div>
-    <div class="main-menu">
+    <div class="main-menu" *ngIf="!generalService.hideLinks">
        <div class="container">
           <div class="ct-row d-flex flex-wrap">
              <div class="logo">
@@ -15,9 +15,9 @@
              <div class="nav-toggle"><i></i></div>
              <div class="menu">
                 <ul>
-                   <li><a href="#">Home</a></li>
-                   <li><a href="#">My Information</a></li>
-                   <li><a href="#">Place an oder</a></li>
+                   <li [routerLink]="['/home/portal']" routerLinkActive="active"><a href="javascript: void(0)"  >Home</a></li>
+                   <li [routerLink]="['/home/information']" routerLinkActive="active"><a href="javascript: void(0)" >My Information</a></li>
+                   <li [routerLink]="['/home/products']" routerLinkActive="active"><a href="javascript: void(0)"  >Place an order</a></li>
                 </ul>
              </div>
           </div>

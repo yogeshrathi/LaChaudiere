@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 export class GeneralService {
 
   constructor(private toastrService: ToastrService) { }
+  public hideLinks = false;
 
   public displayError(title: string, message: string = ''): void {
     this.toastrService.error(message, title);

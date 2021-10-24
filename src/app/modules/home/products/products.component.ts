@@ -8,31 +8,60 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class ProductsComponent implements OnInit {
   products: Array<any> = [];
-
-  constructor(private userService: UserService) { }
+  search: string = '';
+  constructor(private userService: UserService,) { }
 
   ngOnInit(): void {
     this.getProducts();
   }
 
   getProducts(): void {
-    this.products.forEach((item: any) => {
-      item.quantity = 0;
-    })
     this.userService.getPoducts().subscribe(res => {
       if (res) {
         this.products = res?.data;
-        console.log("products", this.products);
+        this.products.forEach((item: any) => {
+          item.quantity = 0;
+        })
+        this.getUserCart();
       }
     })
   }
 
-  updateAddCart(): void {
-    if (this.products.length > 0) {
-      this.userService.updateAddCart(this.products).subscribe(res => {
-        this.getProducts();
-      })
+  updateAddCart(product: any, type: any): void {
+    if (type == 'add') {
+      product.quantity = product.quantity + 1;
+    } else {
+      product.quantity = product.quantity - 1;
     }
+    this.products.forEach(prod => {
+      if (prod._id == product._id) {
+        prod.quantity = product.quantity
+      }
+    })
+
+    let cart = this.products.filter(prd => {
+      if (prd.quantity > 0) {
+        return prd;
+      }
+    })
+
+    this.userService.updateAddCart({products: cart}).subscribe(res => {
+      this.getUserCart();
+    })
+  }
+
+  getUserCart(): void {
+    this.userService.getUserCart().subscribe(res => {
+      if (res.userCart) {
+        this.products.forEach(product => {
+          res.userCart.products.forEach((cartProduct: any) => {
+            if (cartProduct._id == product._id) {
+              product.quantity = cartProduct.quantity;
+            }
+          });
+        })
+      }
+    })
   }
 
 }

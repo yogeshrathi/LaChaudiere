@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralService } from 'src/app/core/services/general.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public generalService: GeneralService) { }
 
   ngOnInit(): void {
   }
