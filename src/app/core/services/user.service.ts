@@ -27,7 +27,16 @@ export class UserService {
         return this.httpClient.get(`${environment.apiUrl}user`);
     }
 
-    public updateUserInfo(body: any) : Observable<any>{
+    public updateUserInfo(body: any): Observable<any> {
         return this.httpClient.post(`${environment.apiUrl}user`, body);
+    }
+
+    public getPoducts(): Observable<any> {
+        return this.httpClient.get(`${environment.apiUrl}products`);
+    }
+
+    public updateAddCart(body: any): Observable<any> {
+        debugger;
+        return this.httpClient.post(`${environment.apiUrl}cart`, body);
     }
 }
