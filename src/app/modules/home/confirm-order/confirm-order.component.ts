@@ -3,7 +3,7 @@ import { UserService } from 'src/app/core/services/user.service';
 import * as moment from 'moment';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-
+import { IDayCalendarConfig, DatePickerComponent } from 'ng2-date-picker';
 @Component({
   selector: 'app-confirm-order',
   templateUrl: './confirm-order.component.html',
@@ -12,12 +12,14 @@ import { Router } from '@angular/router';
 export class ConfirmOrderComponent implements OnInit {
 
   products: Array<any> = [];
+  datePickerConfig = {};
+  selectedDate: any
+  
   constructor(private userService: UserService,
     private toastr: ToastrService,
     private router: Router) { }
 
-  selected = { startDate: moment(new Date()), endDate: moment(new Date().setDate((new Date().getDate() + 30))) };
-
+  
   ngOnInit(): void {
     this.getUserCart();
   }
@@ -25,8 +27,15 @@ export class ConfirmOrderComponent implements OnInit {
   updateAddCart(product: any, type: any): void {
     if (type == 'add') {
       product.quantity = product.quantity + 1;
-    } else {
-      product.quantity = product.quantity - 1;
+    } else if(type == 'remove'){
+      product.quantity = 0;
+    } 
+    else {
+      if(product.quantity > 0){
+        product.quantity = product.quantity - 1;
+      }else{
+        return;
+      }
     }
 
     let cart = this.products.filter(prd => {
@@ -52,7 +61,7 @@ export class ConfirmOrderComponent implements OnInit {
   confirmOrder(): void {
     this.userService.confirmOrder({
       products: this.products,
-      orderDate: moment(this.selected.startDate).format('DD-MMM-yyyy') + ' - ' + moment(this.selected.endDate).format('DD-MMM-yyyy')
+      orderDate: moment(this.selectedDate).format('DD-MMM-yyyy')
     }).subscribe(res => {
       this.toastr.success('Order Placed');
       this.userService.updateAddCart({ products: [] }).subscribe(res => {

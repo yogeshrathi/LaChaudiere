@@ -18,20 +18,23 @@
           <div class="qty po-col">
             <span>Quantity</span>
             <div class="qtybox">
-              <button type="button" id="sub" class="sub" (click)="updateAddCart(item, 'remove')">-</button>
-              <input type="number" id="1" [value]=item.quantity min="1" max="100" />
               <button type="button" id="add" class="add" (click)="updateAddCart(item, 'add')">+</button>
+              <input type="number" id="1" [value]=item.quantity min="1" max="100" />
+              <button type="button" id="sub" class="sub" (click)="updateAddCart(item, 'remove')">-</button>
             </div>
           </div>
-          <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="updateAddCart(item, 'add')">Add to
-              cart</a></div>
+          <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="updateAddCart(item, 'remove')">Remove</a></div>
         </div>
     </div>
 
     <div class="note" style="padding-top: 20px;">Choose date you want to receive your order. If a date is not available in calendar it is because we can't deliver at this day</div>
     <div style="padding: 20px 0px;">
-        <input type="text" ngxDaterangepickerMd [(ngModel)]="selected" class="form-control"/>
-    </div>
+     <dp-date-picker theme="dp-material"
+                            [config]="datePickerConfig"
+                            required="true"
+                            [(ngModel)]="selectedDate">
+</dp-date-picker>
+    </div>  
 
       <div class="bottom-btn">
         <a href="javascript: void(0)" (click)="confirmOrder()">Confirm Order</a>

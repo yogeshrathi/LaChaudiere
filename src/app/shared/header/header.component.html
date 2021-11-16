@@ -3,6 +3,7 @@
        <div class="container">
           <div class="ct-row d-flex flex-wrap">
              <div class="lang"><a href="#">Français</a></div>
+             <div class="logout" *ngIf="!generalService.hideLinks"><a href="javascript: void(0)" (click)="handleLogout">Log out</a></div>
           </div>
        </div>
     </div>

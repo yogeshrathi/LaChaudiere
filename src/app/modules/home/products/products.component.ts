@@ -31,7 +31,11 @@ export class ProductsComponent implements OnInit {
     if (type == 'add') {
       product.quantity = product.quantity + 1;
     } else {
-      product.quantity = product.quantity - 1;
+      if(product.quantity > 0){
+        product.quantity = product.quantity - 1;
+      }else{
+        return;
+      }
     }
     this.products.forEach(prod => {
       if (prod._id == product._id) {

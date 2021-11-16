@@ -10,6 +10,7 @@ import { PortalComponent } from './portal/portal.component';
 import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DpDatePickerModule } from 'ng2-date-picker';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     SharedModule,
     HomeRoutingModule,
     NgxDaterangepickerMd.forRoot(),
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    DpDatePickerModule
   ]
 })
 export class HomeModule { }
