@@ -28,11 +28,12 @@
     </div>
 
     <div class="note" style="padding-top: 20px;">Choose date you want to receive your order. If a date is not available in calendar it is because we can't deliver at this day</div>
-    <div style="padding: 20px 0px;">
+    <div class="select-date-main">
      <dp-date-picker theme="dp-material"
                             [config]="datePickerConfig"
                             required="true"
-                            [(ngModel)]="selectedDate">
+                            [(ngModel)]="selectedDate"
+                            placeholder="Select Delivery Date">
 </dp-date-picker>
     </div>  
 
