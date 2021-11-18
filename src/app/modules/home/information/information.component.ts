@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -22,7 +23,8 @@ export class InformationComponent implements OnInit {
   });
   isSubmitted = false;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getUserData();
@@ -58,6 +60,7 @@ export class InformationComponent implements OnInit {
         postalCode: this.userForm.value.postalCode,
         address: this.user.address
       }).subscribe(res => {
+        this.toastr.success('Info updated Successfully.')
         this.getUserData();
       })
     }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
 import { HomeComponent } from './home.component';
 import { InformationComponent } from './information/information.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { PortalComponent } from './portal/portal.component';
 import { ProductsComponent } from './products/products.component';
 
@@ -29,6 +30,9 @@ export const routes: Routes = [
       },{
         path: 'confirm-order',
         component: ConfirmOrderComponent
+      },{
+        path: 'order-confirmation',
+        component: OrderConfirmationComponent
       }]
   }
 ];

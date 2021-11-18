@@ -11,6 +11,7 @@ import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
 import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DpDatePickerModule } from 'ng2-date-picker';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { DpDatePickerModule } from 'ng2-date-picker';
     PortalComponent,
     ProductsComponent,
     ConfirmOrderComponent,
+    OrderConfirmationComponent,
   ],
   imports: [
     CommonModule,

@@ -65,7 +65,8 @@ export class ConfirmOrderComponent implements OnInit {
     }).subscribe(res => {
       this.toastr.success('Order Placed');
       this.userService.updateAddCart({ products: [] }).subscribe(res => {
-        this.getUserCart();
+        // this.getUserCart();
+        this.router.navigate(['/home/order-confirmation'])
       })
     })
   }

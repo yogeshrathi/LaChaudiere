@@ -221,4 +221,5 @@ h2 {font-size: 20px; line-height: 28px; margin: 0 0 15px 0;}
     .po-data-table .pod-data-row .po-col {width: 100% !important;padding: 5px 20px;font-size: 12px; display: flex; align-items: center;}
     .po-data-table .pod-data-row .po-col span {display: block;min-width: 115px;padding: 0 10px 0 0;}
     .place-order-block {padding: 20px 0 60px 0;}
+    
 }

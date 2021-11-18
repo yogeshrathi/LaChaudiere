@@ -30,7 +30,11 @@ export class ProductsComponent implements OnInit {
   updateAddCart(product: any, type: any): void {
     if (type == 'add') {
       product.quantity = product.quantity + 1;
-    } else {
+    } else if(type == 'add_to_cart'){
+      if(product.quantity == 0){
+        product.quantity = 1;
+      }
+    }else {
       if(product.quantity > 0){
         product.quantity = product.quantity - 1;
       }else{
