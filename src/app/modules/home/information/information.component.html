@@ -16,7 +16,7 @@
           <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.email?.errors && isSubmitted}">
             <label>Email</label>
             <span class="error-span" *ngIf="(userForm?.controls?.email?.errors && isSubmitted)">
-              Please enter email
+              Please enter valid email
             </span>
             <input type="text" formControlName="email" name="" required="">
           </div>

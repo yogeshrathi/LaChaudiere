@@ -12,6 +12,7 @@ import { NgxDaterangepickerMd } from 'ngx-daterangepicker-material';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DpDatePickerModule } from 'ng2-date-picker';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { LightboxModule } from 'ngx-lightbox';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
     HomeRoutingModule,
     NgxDaterangepickerMd.forRoot(),
     Ng2SearchPipeModule,
-    DpDatePickerModule
+    DpDatePickerModule,
+    LightboxModule
   ]
 })
 export class HomeModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
+import { Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-products',
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/core/services/user.service';
 export class ProductsComponent implements OnInit {
   products: Array<any> = [];
   search: string = '';
-  constructor(private userService: UserService,) { }
+  constructor(private userService: UserService, private lightbox: Lightbox) { }
 
   ngOnInit(): void {
     this.getProducts();
@@ -70,6 +71,18 @@ export class ProductsComponent implements OnInit {
         })
       }
     })
+  }
+
+  onImageClick(product: any): void {
+    const src = product.imageUrl
+    const caption = product.product_name;
+    const album = {
+       src: src,
+       caption: caption,
+       thumb: src
+    };
+
+    this.lightbox.open([album], 0);
   }
 
 }

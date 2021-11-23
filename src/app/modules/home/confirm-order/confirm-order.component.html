@@ -18,9 +18,9 @@
           <div class="qty po-col">
             <span>Quantity</span>
             <div class="qtybox">
-              <button type="button" id="add" class="add" (click)="updateAddCart(item, 'add')">+</button>
-              <input type="number" id="1" [value]=item.quantity min="1" max="100" />
-              <button type="button" id="sub" class="sub" (click)="updateAddCart(item, 'remove')">-</button>
+              <button type="button" id="add" class="add" (click)="updateAddCart(item, 'remove')">-</button>
+            <input type="number" id="1" [value]=item.quantity min="1" max="100" />
+            <button type="button" id="sub" class="sub" (click)="updateAddCart(item, 'add')">+</button>
             </div>
           </div>
           <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="updateAddCart(item, 'remove')">Remove</a></div>

@@ -28,14 +28,13 @@ export class ConfirmOrderComponent implements OnInit {
     if (type == 'add') {
       product.quantity = product.quantity + 1;
     } else if(type == 'remove'){
-      product.quantity = 0;
-    } 
-    else {
       if(product.quantity > 0){
         product.quantity = product.quantity - 1;
       }else{
         return;
       }
+    } else{
+      product.quantity = 0;
     }
 
     let cart = this.products.filter(prd => {

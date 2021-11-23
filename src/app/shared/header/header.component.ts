@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     window.location.reload();
   }
+
   showNav = () => {
     $( 'body' ).toggleClass( 'menu-open' );
   }

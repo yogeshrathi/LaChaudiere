@@ -3,18 +3,18 @@
        <div class="container">
           <div class="ct-row d-flex flex-wrap">
              <div class="lang"><a href="#">Français</a></div>
-             <div class="logout" *ngIf="!generalService.hideLinks"><a href="javascript: void(0)" (click)="handleLogout">Log out</a></div>
+             <div class="logout" *ngIf="!generalService.hideLinks"><a href="javascript: void(0)" (click)="handleLogout()">Log out</a></div>
           </div>
        </div>
     </div>
-    <div class="main-menu" *ngIf="!generalService.hideLinks">
+    <div class="main-menu">
        <div class="container">
-          <div class="ct-row d-flex flex-wrap">
+          <div class="ct-row d-flex flex-wrap" [ngClass]="{'content-center': generalService.hideLinks}">
              <div class="logo">
-                <a href="#"><img src="../../../assets/images/logo.svg"></a>
+                <a href="/home"><img src="../../../assets/images/logo.svg"></a>
              </div>
-             <div class="nav-toggle" (click)="showNav()"><i></i></div>
-             <div class="menu">
+             <div class="nav-toggle" (click)="showNav()"  *ngIf="!generalService.hideLinks"><i></i></div>
+             <div class="menu"  *ngIf="!generalService.hideLinks">
                 <ul>
                    <li [routerLink]="['/home/portal']" routerLinkActive="active"><a href="javascript: void(0)"  >Home</a></li>
                    <li [routerLink]="['/home/information']" routerLinkActive="active"><a href="javascript: void(0)" >My Information</a></li>
