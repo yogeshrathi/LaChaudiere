@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "https://lacbe.azurewebsites.net/api/"
+  apiUrl: "https://lachaudiere.herokuapp.com/api/"
 };
