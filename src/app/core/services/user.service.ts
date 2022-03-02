@@ -31,7 +31,7 @@ export class UserService {
         return this.httpClient.post(`${environment.apiUrl}user`, body);
     }
 
-    public getPoducts(): Observable<any> {
+    public getProducts(): Observable<any> {
         return this.httpClient.get(`${environment.apiUrl}products`);
     }
 
@@ -45,5 +45,17 @@ export class UserService {
 
     public confirmOrder(body: any): Observable<any> {
         return this.httpClient.post(`${environment.apiUrl}order`, body);
+    }
+
+    public getCustomers(): Observable<any> {
+        return this.httpClient.get(`${environment.apiUrl}users`);
+    }
+
+    public addUser(data: any): Observable<any>{
+        return this.httpClient.post(`${environment.apiUrl}auth/signup`, data);
+    }
+
+    public updateUser(data: any): Observable<any>{
+        return this.httpClient.post(`${environment.apiUrl}auth/updateUserInfo`, data);
     }
 }

@@ -7,10 +7,12 @@ import * as $ from 'jquery';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  
+  isAdmin = false;
   constructor(public generalService: GeneralService) { }
 
   ngOnInit(): void {
+    localStorage.getItem('r') === 'true' ? this.isAdmin = true : this.isAdmin = false;
   }
 
   handleLogout = () => {

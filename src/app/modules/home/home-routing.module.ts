@@ -33,7 +33,8 @@ export const routes: Routes = [
       },{
         path: 'order-confirmation',
         component: OrderConfirmationComponent
-      }]
+      },
+     ]
   }
 ];
 

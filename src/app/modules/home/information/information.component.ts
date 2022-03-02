@@ -1,15 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/core/services/user.service';
-
 @Component({
   selector: 'app-information',
   templateUrl: './information.component.html',
   styleUrls: ['./information.component.css']
 })
 export class InformationComponent implements OnInit {
-
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event: any) {
+    alert('Back button pressed')
+  }
+  
   user: any;
   userForm = new FormGroup({
     name: new FormControl("", [Validators.required]),

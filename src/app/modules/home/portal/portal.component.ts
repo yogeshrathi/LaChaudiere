@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { LocationStrategy } from '@angular/common';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { App } from '@capacitor/app';
 
 @Component({
   selector: 'app-portal',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portal.component.css']
 })
 export class PortalComponent implements OnInit {
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event: any) {
+    window.history.back()
+  }
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

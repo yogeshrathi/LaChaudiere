@@ -1,0 +1,211 @@
+<section class="place-order-block">
+    <div class="container">
+        <div class="top-row">
+            <h3>Manage Customers</h3>
+            <form>
+                <input type="search" name="" [(ngModel)]="search" placeholder="Search">
+            </form>
+            <div class="bottom-btn margin-0">
+                <a href="javascript: void(0)" (click)="openModal(template, false)">Add New Customer</a>
+            </div>
+        </div>
+        <div class="po-data-table customer">
+            <div class="pod-heading-row">
+                <div class="number po-col">Customer number</div>
+                <div class="client po-col">Client Id</div>
+                <div class="name po-col">Name</div>
+                <div class="email po-col">Email</div>
+                <!-- <div class="c-name po-col">Company Name</div> -->
+                <!-- <div class="city po-col">City</div>
+                <div class="phone po-col">Phone</div>
+                <div class="address po-col">Address</div> -->
+                <div class="action po-col">Action</div>
+            </div>
+            <div class="pod-data-row" *ngFor="let item of users | filter:search; let i = index">
+                <div class="number po-col">Customer {{i + 1}}</div>
+                <div class="client po-col">{{item.clientId}}</div>
+                <div class="name po-col">{{item.name}}</div>
+                <div class="email po-col">{{item.email}}</div>
+                <!-- <div class="c-name po-col">{{item.companyName}}</div> -->
+                <!-- <div class="city po-col">{{item.city}}</div>
+                <div class="phone po-col">{{item.phone}}</div>
+                <div class="address po-col">{{item.address}}</div> -->
+                <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="openModal(template, true, item)">Edit Item</a></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">
+            {{(userForm?.value.name && (userForm?.value._id != '')) ? userForm?.value.name : 'Add New Customer'}}
+        </h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="add-new-customer">
+            <form class="common-form" #f="ngForm" [formGroup]="userForm">
+                <div class="field-row">
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.clientId?.errors && isSubmitted}">
+                        <label>Client Id</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.clientId?.errors && isSubmitted)">
+                        Please enter name
+                    </span>
+                        <input type="text" formControlName="clientId" name="" required="">
+                    </div>
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.name?.errors && isSubmitted}">
+                        <label>Name</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.name?.errors && isSubmitted)">
+                            Please enter name
+                        </span>
+                        <input type="text" formControlName="name" name="" required="">
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field-group width-100" [ngClass]="{'field-error': userForm?.controls?.email?.errors && isSubmitted}">
+                        <label>Email</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.email?.errors && isSubmitted)">
+                            Please enter valid email
+                        </span>
+                        <input type="text" formControlName="email" name="" required="">
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field-group" [ngClass]="{'field-error': ((userForm?.controls?.password?.errors || userForm.value.password !== userForm.value.confirmPassword) && isSubmitted)}">
+                        <label>Password</label>
+                        <span class="error-span" *ngIf="((userForm?.controls?.password?.errors && isSubmitted) || 
+                    ((userForm.value.password !== userForm.value.confirmPassword) && isSubmitted))">
+                            Please enter password
+                        </span>
+                        <input type="password" formControlName="password" name="" required="">
+                    </div>
+                    <div class="field-group" [ngClass]="{'field-error': ((userForm?.controls?.password?.errors || userForm.value.password !== userForm.value.confirmPassword) && isSubmitted)}">
+                        <label>Password confirmation</label>
+                        <span class="error-span" *ngIf="((userForm?.controls?.confirmPassword?.errors && isSubmitted) || 
+                    ((userForm.value.password !== userForm.value.confirmPassword) && isSubmitted))">
+                            Please enter confirm password
+                        </span>
+                        <input type="password" formControlName="confirmPassword" name="" required="">
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.phone?.errors && isSubmitted}">
+                        <label>Phone</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.phone?.errors && isSubmitted)">
+                            Please enter Phone number
+                        </span>
+                        <input type="text" formControlName="phone" name="" required="">
+                    </div>
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.address?.errors && isSubmitted}">
+                        <label>Address</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.address?.errors && isSubmitted)">
+                            Please enter address
+                        </span>
+                        <input type="text" name="" required="" formControlName="address">
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.postalCode?.errors && isSubmitted}">
+                        <label>Postal Code</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.postalCode?.errors && isSubmitted)">
+                            Please enter Postal code
+                        </span>
+                        <input type="text" formControlName="postalCode" name="" required="">
+                    </div>
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.city?.errors && isSubmitted}">
+                        <label>City</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.city?.errors && isSubmitted)">
+                            Please enter city
+                        </span>
+                        <input type="text" formControlName="city" name="" required="">
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.companyName?.errors && isSubmitted}">
+                        <label>Company name</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.companyName?.errors && isSubmitted)">
+                            Please enter Company name
+                        </span>
+                        <input type="text" formControlName="companyName" name="" required="">
+                    </div>
+                    <div class="field-group">
+                        <label>Role</label>
+                        <div class="d-flex margin-top-sm align-baseline justify-left">
+                            <input type="radio" class="width-20" id="Admin" formControlName="role" name="role" value="admin">
+                            <label for="Admin">Admin</label>
+                            <input type="radio" class="width-20" id="Client" formControlName="role" name="role" value="client">
+                            <label for="Client">Client</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.location?.errors && isSubmitted}">
+                        <label>Location</label>
+                        <input type="text" formControlName="location" name="" required="">
+                        <span class="error-span" *ngIf="(userForm?.controls?.location?.errors && isSubmitted)">
+                            Please enter Location
+                        </span>
+                    </div>
+                    <div class="field-group d-flex gap-20 align-end">
+                        <label>Active </label>
+                        <label class="switch">
+                            <input type="checkbox" formControlName="isActive">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field-group width-100">
+                        <label>Delivery Available On:</label>
+                        <div class="day-wrapper">
+                            <div class="day">
+                                <input type="checkbox" id="monday" name="monday" formControlName="monday">
+                                <label for="monday">Monday</label>
+                            </div>
+                            <div class="day">
+                                <input type="checkbox" id="tuesday" name="tuesday" formControlName="tuesday">
+                                <label for="tuesday">Tuesday</label>
+                            </div>
+                            <div class="day">
+                                <input type="checkbox" id="wednesday" name="wednesday" formControlName="wednesday">
+                                <label for="wednesday">Wednesday</label>
+                            </div>
+                            <div class="day">
+                                <input type="checkbox" id="thursday" name="thursday" formControlName="thursday">
+                                <label for="thursday">Thursday</label>
+                            </div>
+                            <div class="day">
+                                <input type="checkbox" id="friday" name="friday" formControlName="friday">
+                                <label for="friday">Friday</label>
+                            </div>
+                            <div class="day">
+                                <input type="checkbox" id="saturday" name="saturday" formControlName="saturday">
+                                <label for="saturday">Saturday</label>
+                            </div>
+                            <div class="day">
+                                <input type="checkbox" id="sunday" name="sunday" formControlName="sunday">
+                                <label for="sunday">Sunday</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="bottom-row">
+                    <input type="submit" name="" [value]="(!userForm?.value._id) ? 'Save': 'Edit'" (click)="updateUser()">
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>

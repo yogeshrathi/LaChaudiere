@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { GeneralService } from 'src/app/core/services/general.service';
 import { UserService } from 'src/app/core/services/user.service';
 import { SubscriptionDisposer } from 'src/app/shared/helpers/subscription-disposer';
-
+import { App } from '@capacitor/app';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

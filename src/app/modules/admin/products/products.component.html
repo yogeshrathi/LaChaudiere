@@ -1,0 +1,24 @@
+<section class="place-order-block">
+    <div class="container">
+        <div class="top-row">
+            <h3>Manage Products</h3>
+            <form>
+                <input type="search" name="" [(ngModel)]="search" placeholder="Search">
+            </form>
+        </div>
+        <div class="po-data-table admin">
+            <div class="pod-heading-row">
+                <div class="number po-col">Product number</div>
+                <div class="name po-col">Product name</div>
+                <div class="img po-col">Product image</div>
+                <div class="action po-col">Action</div>
+            </div>
+            <div class="pod-data-row" *ngFor="let item of products | filter:search; let i = index">
+                <div class="number po-col">Product {{i + 1}}</div>
+                <div class="name po-col">{{item.product_name}}</div>
+                <div class="img po-col" (click)="onImageClick(item)"><img src="{{item.imageUrl}}" alt=""></div>
+                <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="editItem(item)">Edit Item</a></div>
+            </div>
+        </div>
+    </div>
+</section>

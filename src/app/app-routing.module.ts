@@ -14,6 +14,11 @@ const routes: Routes = [
     canActivate: [UserGuard]
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+    canActivate: [UserGuard]
+  },
+  {
     path: '**',
     redirectTo: 'login'
   }

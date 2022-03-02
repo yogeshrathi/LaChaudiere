@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
 import { Lightbox } from 'ngx-lightbox';
 
@@ -8,16 +8,21 @@ import { Lightbox } from 'ngx-lightbox';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event: any) {
+    window.history.back()
+  }
   products: Array<any> = [];
   search: string = '';
-  constructor(private userService: UserService, private lightbox: Lightbox) { }
+  constructor(private userService: UserService, private lightbox: Lightbox,) { 
+  }
 
   ngOnInit(): void {
     this.getProducts();
   }
 
   getProducts(): void {
-    this.userService.getPoducts().subscribe(res => {
+    this.userService.getProducts().subscribe(res => {
       if (res) {
         this.products = res?.data;
         this.products.forEach((item: any) => {
