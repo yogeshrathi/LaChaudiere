@@ -3,7 +3,7 @@
         <div class="top-row">
             <h3>Manage Customers</h3>
             <form>
-                <input type="search" name="" [(ngModel)]="search" placeholder="Search">
+                <input type="search" name="" [(ngModel)]="search" placeholder="Search" [ngModelOptions]="{standalone: true}">
             </form>
             <div class="bottom-btn margin-0">
                 <a href="javascript: void(0)" (click)="openModal(template, false)">Add New Customer</a>

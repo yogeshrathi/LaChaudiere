@@ -51,6 +51,10 @@ export class UserService {
         return this.httpClient.get(`${environment.apiUrl}users`);
     }
 
+    public getAvlDays(): Observable<any> {
+        return this.httpClient.get(`${environment.apiUrl}user/getAvlDays`);
+    }
+
     public addUser(data: any): Observable<any>{
         return this.httpClient.post(`${environment.apiUrl}auth/signup`, data);
     }

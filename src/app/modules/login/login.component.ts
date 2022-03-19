@@ -79,6 +79,9 @@ export class LoginComponent extends SubscriptionDisposer implements OnInit, OnDe
             this.router.navigate(['/admin'])
           }, 100);
         } else {
+          this.userService.getAvlDays().subscribe(res => {
+            localStorage.setItem('a', JSON.stringify(res.avlDays));
+          })
           setTimeout(() => {
             this.router.navigate(['/home'])
           }, 100);

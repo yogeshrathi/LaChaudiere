@@ -3,7 +3,7 @@
         <div class="top-row">
             <h3>Manage Products</h3>
             <form>
-                <input type="search" name="" [(ngModel)]="search" placeholder="Search">
+                <input type="search" name="" [(ngModel)]="search" placeholder="Search" [ngModelOptions]="{standalone: true}">
             </form>
             <div class="bottom-btn margin-0">
                 <a href="javascript: void(0)" (click)="openModal(template, false)">Add New Product</a>
@@ -35,7 +35,7 @@
 <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">
-            {{(productForm?.value.name && (productForm?.value._id != '')) ? productForm?.value.name : 'Add New Product'}}
+            {{(productForm?.value.product_name && (productForm?.value._id != '')) ? productForm?.value.product_name : 'Add New Product'}}
         </h4>
         <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
             <span aria-hidden="true" class="visually-hidden">&times;</span>

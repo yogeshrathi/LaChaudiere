@@ -1,38 +1,38 @@
 <section class="place-order-block">
-  <div class="container">
-    <div class="top-row">
-      <h3>Place an order</h3>
-      <form>
-        <input type="search" name="" [(ngModel)]="search" placeholder="Search">
-      </form>
-    </div>
-    <div class="po-data-table">
-      <div class="pod-heading-row">
-        <div class="number po-col">Product number</div>
-        <div class="name po-col">Product name</div>
-        <div class="img po-col">Product image</div>
-        <div class="qty po-col">Quantity</div>
-        <div class="action po-col">Action</div>
-      </div>
-      <div class="pod-data-row" *ngFor="let item of products | filter:search; let i = index">
-        <div class="number po-col">Product {{i + 1}}</div>
-        <div class="name po-col">{{item.product_name}}</div>
-        <div class="img po-col" (click)="onImageClick(item)"><img src="{{item.imageUrl}}" alt=""></div>
-        <div class="qty po-col">
-          <span>Quantity</span>
-          <div class="qtybox">
-            <button type="button" id="add" class="add" (click)="updateAddCart(item, 'remove')">-</button>
-            <input type="number" id="1" [value]=item.quantity min="1" max="100" />
-            <button type="button" id="sub" class="sub" (click)="updateAddCart(item, 'add')">+</button>
-
-          </div>
+    <div class="container">
+        <div class="top-row">
+            <h3>Place an order</h3>
+            <form>
+                <input type="search" name="" [(ngModel)]="search" placeholder="Search" [ngModelOptions]="{standalone: true}">
+            </form>
         </div>
-        <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="updateAddCart(item, 'add_to_cart')">Add to
+        <div class="po-data-table">
+            <div class="pod-heading-row">
+                <div class="number po-col">Product number</div>
+                <div class="name po-col">Product name</div>
+                <div class="img po-col">Product image</div>
+                <div class="qty po-col">Quantity</div>
+                <div class="action po-col">Action</div>
+            </div>
+            <div class="pod-data-row" *ngFor="let item of products | filter:search; let i = index">
+                <div class="number po-col">Product {{i + 1}}</div>
+                <div class="name po-col">{{item.product_name}}</div>
+                <div class="img po-col" (click)="onImageClick(item)"><img src="{{item.imageUrl}}" alt=""></div>
+                <div class="qty po-col">
+                    <span>Quantity</span>
+                    <div class="qtybox">
+                        <button type="button" id="add" class="add" (click)="updateAddCart(item, 'remove')">-</button>
+                        <input type="number" id="1" [value]=item.quantity min="1" max="100" />
+                        <button type="button" id="sub" class="sub" (click)="updateAddCart(item, 'add')">+</button>
+
+                    </div>
+                </div>
+                <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="updateAddCart(item, 'add_to_cart')">Add to
             cart</a></div>
-      </div>
+            </div>
+        </div>
+        <div class="bottom-btn">
+            <a href="javascript: void(0)" [routerLink]="['/home/confirm-order']">Place order</a>
+        </div>
     </div>
-    <div class="bottom-btn">
-      <a href="javascript: void(0)" [routerLink]="['/home/confirm-order']">Place order</a>
-    </div>
-  </div>
 </section>
