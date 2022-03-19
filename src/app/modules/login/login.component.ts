@@ -88,7 +88,11 @@ export class LoginComponent extends SubscriptionDisposer implements OnInit, OnDe
         }
 
       }, (err) => {
-        this.toastr.error('Please enter valid credentials');
+        if(err.status == 401){
+        this.toastr.error('Please enter valid credentials');}
+        else{
+          this.toastr.error(err.error.message);
+        }
       })
     }
   }
