@@ -166,7 +166,7 @@
                     </div>
                 </div>
 
-                <div class="field-row">
+                <div class="field-row" *ngIf="userForm?.value?.role =='client'">
                     <div class="field-group width-100">
                         <label>Delivery Available On:</label>
                         <div class="day-wrapper">
