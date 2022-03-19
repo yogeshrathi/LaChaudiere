@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, CanActivateChild, Router } from '@angular/router';
-import { StorageService } from '../services/storage.service';
 
 @Injectable({
     providedIn: 'root'
 })
-export class UserGuard implements CanActivate, CanActivateChild {
+export class AuthGuard implements CanActivate, CanActivateChild {
 
-    constructor(private storageService: StorageService,
-        private router: Router) {
+    constructor(private router: Router) {
 
     }
 
     canActivate(): boolean {
+        const r = localStorage.getItem("r");
         const token = localStorage.getItem("token");
-        if (token) {
+        if (r && token) {
             return true;
         }
         else {
@@ -23,8 +22,9 @@ export class UserGuard implements CanActivate, CanActivateChild {
         }
     }
     canActivateChild(): boolean {
+        const r = localStorage.getItem("r");
         const token = localStorage.getItem("token");
-        if (token) {
+        if (r && token) {
             return true;
         }
         else {

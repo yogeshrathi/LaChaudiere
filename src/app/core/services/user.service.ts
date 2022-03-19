@@ -58,4 +58,20 @@ export class UserService {
     public updateUser(data: any): Observable<any>{
         return this.httpClient.post(`${environment.apiUrl}auth/updateUserInfo`, data);
     }
+
+    public addProduct(data: any): Observable<any>{
+        return this.httpClient.post(`${environment.apiUrl}products/add`, data);
+    }
+
+    public updateProduct(data: any): Observable<any>{
+        return this.httpClient.post(`${environment.apiUrl}products/update`, data);
+    }
+
+    public deleteProduct(data: any): Observable<any>{
+        return this.httpClient.post(`${environment.apiUrl}products/delete`, data);
+    }
+
+    public deleteCustomer(data: any): Observable<any>{
+        return this.httpClient.post(`${environment.apiUrl}user/delete`, data);
+    }
 }

@@ -20,6 +20,7 @@
                 <div class="phone po-col">Phone</div>
                 <div class="address po-col">Address</div> -->
                 <div class="action po-col">Action</div>
+                <div class="action po-col">Delete</div>
             </div>
             <div class="pod-data-row" *ngFor="let item of users | filter:search; let i = index">
                 <div class="number po-col">Customer {{i + 1}}</div>
@@ -30,7 +31,8 @@
                 <!-- <div class="city po-col">{{item.city}}</div>
                 <div class="phone po-col">{{item.phone}}</div>
                 <div class="address po-col">{{item.address}}</div> -->
-                <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="openModal(template, true, item)">Edit Item</a></div>
+                <div class="action po-col"><span>Action</span><a href="javascript: void(0)" *ngIf="currentUser != item.clientId" (click)="openModal(template, true, item)">Edit Item</a></div>
+                <div class="action po-col"><span>Delete</span><a href="javascript: void(0)" *ngIf="currentUser != item.clientId" (click)="deleteUser(item.clientId)">Delete Item</a></div>
             </div>
         </div>
 

@@ -5,6 +5,9 @@
             <form>
                 <input type="search" name="" [(ngModel)]="search" placeholder="Search">
             </form>
+            <div class="bottom-btn margin-0">
+                <a href="javascript: void(0)" (click)="openModal(template, false)">Add New Product</a>
+            </div>
         </div>
         <div class="po-data-table admin">
             <div class="pod-heading-row">
@@ -12,13 +15,79 @@
                 <div class="name po-col">Product name</div>
                 <div class="img po-col">Product image</div>
                 <div class="action po-col">Action</div>
+                <div class="action po-col">Delete</div>
             </div>
             <div class="pod-data-row" *ngFor="let item of products | filter:search; let i = index">
                 <div class="number po-col">Product {{i + 1}}</div>
                 <div class="name po-col">{{item.product_name}}</div>
                 <div class="img po-col" (click)="onImageClick(item)"><img src="{{item.imageUrl}}" alt=""></div>
-                <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="editItem(item)">Edit Item</a></div>
+                <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="openModal(template, true, item)">Edit Item</a></div>
+                <div class="action po-col"><span>Delete</span>
+                    <a href="javascript: void(0)" (click)="deleteItem(item._id)">
+                        Delete</a>
+                </div>
+
             </div>
         </div>
     </div>
 </section>
+
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">
+            {{(productForm?.value.name && (productForm?.value._id != '')) ? productForm?.value.name : 'Add New Product'}}
+        </h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="add-new-customer">
+            <form class="common-form" #f="ngForm" [formGroup]="productForm">
+                <div class="field-row">
+                    <div class="field-group width-100" [ngClass]="{'field-error': productForm?.controls?.product_name?.errors && isSubmitted}">
+                        <label>Product Name</label>
+                        <span class="error-span" *ngIf="(productForm?.controls?.product_name?.errors && isSubmitted)">
+                            Please enter Product Name
+                        </span>
+                        <input type="text" formControlName="product_name" name="" required="">
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field-group width-100" [ngClass]="{'field-error': productForm?.controls?.imageUrl?.errors && isSubmitted}">
+                        <label>Image URL</label>
+                        <span class="error-span" *ngIf="(productForm?.controls?.imageUrl?.errors && isSubmitted)">
+                            Please enter image url
+                        </span>
+                        <input type="text" formControlName="imageUrl" name="" required="">
+                    </div>
+                </div>
+
+                <div class="field-row">
+                    <div class="field-group width-100" [ngClass]="{'field-error': productForm?.controls?.description?.errors && isSubmitted}">
+                        <label>Description</label>
+                        <span class="description-span" *ngIf="(productForm?.controls?.description?.errors && isSubmitted)">
+                            Please enter imageUrl
+                        </span>
+                        <input type="text" formControlName="description" name="" required="">
+                    </div>
+
+                </div>
+                <div class="field-row">
+                    <div class="field-group d-flex gap-20 align-end">
+                        <label>Active </label>
+                        <label class="switch">
+                            <input type="checkbox" formControlName="isAvailable">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bottom-row">
+                    <input type="submit" name="" [value]="(!productForm?.value._id) ? 'Save': 'Edit'" (click)="updateProduct()">
+                </div>
+            </form>
+        </div>
+    </div>
+</ng-template>

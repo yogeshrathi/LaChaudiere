@@ -597,19 +597,19 @@ h2 {
 }
 
 .po-data-table .pod-data-row .po-col.name {
-    width: 25%;
+    width: 20%;
 }
 
 .po-data-table .pod-data-row .po-col.img {
-    width: 17%;
+    width: 15%;
 }
 
 .po-data-table .pod-data-row .po-col.qty {
-    width: 17%;
+    width: 15%;
 }
 
 .po-data-table .pod-data-row .po-col.action {
-    width: 21%;
+    width: 15%;
 }
 
 .po-data-table .pod-data-row .po-col.img img {
@@ -740,11 +740,11 @@ h2 {
 }
 
 .po-data-table.customer .pod-heading-row .po-col.number {
-    width: 20%;
+    width: 15%;
 }
 
 .po-data-table.customer .pod-heading-row .po-col.client {
-    width: 20%;
+    width: 15%;
 }
 
 .po-data-table.customer .pod-heading-row .po-col.name {
@@ -773,11 +773,11 @@ h2 {
 }
 
 .po-data-table.customer .pod-data-row .po-col.number {
-    width: 20%;
+    width: 15%;
 }
 
 .po-data-table.customer .pod-data-row .po-col.client {
-    width: 20%;
+    width: 15%;
 }
 
 .po-data-table.customer .pod-data-row .po-col.name {

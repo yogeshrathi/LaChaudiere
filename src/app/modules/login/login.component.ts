@@ -37,9 +37,14 @@ export class LoginComponent extends SubscriptionDisposer implements OnInit, OnDe
 
   //Functions
   ngOnInit(): void {
-    // if (localStorage.getItem('token')) {
-    //   this.router.navigate(['/home'])
-    // }
+    if (localStorage.getItem('token')) {
+      let r = localStorage.getItem('r');
+      if (r == 'true') {
+        this.router.navigate(['/admin'])
+      } else {
+        this.router.navigate(['/home'])
+      }
+    }
     this.generalService.hideLinks = true;
   }
 
@@ -66,9 +71,19 @@ export class LoginComponent extends SubscriptionDisposer implements OnInit, OnDe
         // console.log(res);
         this.toastr.success('Login successfully');
         localStorage.setItem('token', res.accessToken);
-        setTimeout(() => {
-          this.router.navigate(['/home'])
-        }, 100);
+        localStorage.setItem('userId', this.loginForm.value.clientId);
+        this.generalService.isUserChange.next(true);
+        if (res.role === 'admin') {
+          localStorage.setItem('r', 'true');
+          setTimeout(() => {
+            this.router.navigate(['/admin'])
+          }, 100);
+        } else {
+          setTimeout(() => {
+            this.router.navigate(['/home'])
+          }, 100);
+        }
+
       }, (err) => {
         this.toastr.error('Please enter valid credentials');
       })

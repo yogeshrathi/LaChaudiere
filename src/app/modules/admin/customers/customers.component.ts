@@ -27,19 +27,20 @@ export class CustomersComponent implements OnInit {
     companyName: new FormControl("", [Validators.required]),
     role: new FormControl("client", [Validators.required]),
     location: new FormControl("", [Validators.required]),
-    isActive: new FormControl(true, [Validators.required]),
-    monday: new FormControl(false, [Validators.required]),
-    tuesday: new FormControl(false, [Validators.required]),
-    wednesday: new FormControl(false, [Validators.required]),
-    thursday: new FormControl(false, [Validators.required]),
-    friday: new FormControl(false, [Validators.required]),
-    saturday: new FormControl(false, [Validators.required]),
-    sunday: new FormControl(false, [Validators.required]),
+    isActive: new FormControl(true),
+    monday: new FormControl(false),
+    tuesday: new FormControl(false),
+    wednesday: new FormControl(false),
+    thursday: new FormControl(false),
+    friday: new FormControl(false),
+    saturday: new FormControl(false),
+    sunday: new FormControl(false),
     _id: new FormControl(""),
   });
 
   isSubmitted = false;
   selectedUser: any;
+  currentUser= '';
 
 
   constructor(private userService: UserService, private modalService: BsModalService,
@@ -47,6 +48,7 @@ export class CustomersComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.currentUser = localStorage.getItem('userId') || '';
     this.getCustomers();
   }
 
@@ -63,10 +65,13 @@ export class CustomersComponent implements OnInit {
     if(isEdit){
       this.userForm.patchValue(user);
       this.userForm.patchValue({
-        password: ''
+        confirmPassword: user.password
       })
     } else{
       this.userForm.reset();
+      this.userForm.patchValue({
+        role: 'client'
+      })
     }
     setTimeout(() => {
       this.modalRef = this.modalService.show(template);
@@ -103,4 +108,14 @@ export class CustomersComponent implements OnInit {
     }
   }
 
+  deleteUser(clientId: any){
+    this.userService.deleteCustomer({clientId: clientId}).subscribe(res => {
+      if (res) {
+        this.generalApi.displaySuccess("Success", "User deleted successfully");
+        this.getCustomers();
+      }
+    }, err => {
+      this.generalApi.displayError("Error", err.error.message);
+    })
+  }
 }

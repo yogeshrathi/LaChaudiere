@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,7 @@ export class GeneralService {
 
   constructor(private toastrService: ToastrService) { }
   public hideLinks = false;
+  public isUserChange = new BehaviorSubject<boolean>(false);
 
   public displayError(title: string, message: string = ''): void {
     this.toastrService.error(message, title);
