@@ -8,6 +8,11 @@
             <div class="bottom-btn margin-0">
                 <a href="javascript: void(0)" (click)="openModal(template, false)">Add New Customer</a>
             </div>
+            <div class="bottom-btn margin-0">
+                <a href="javascript: void(0)" (click)="handleImport()">
+                Import Customer From Excel
+                </a>
+            </div>
         </div>
         <div class="po-data-table customer">
             <div class="pod-heading-row">
@@ -35,7 +40,6 @@
                 <div class="action po-col"><span>Delete</span><a href="javascript: void(0)" *ngIf="currentUser != item.clientId" (click)="deleteUser(item.clientId)">Delete Item</a></div>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -211,3 +215,5 @@
         </div>
     </div>
 </ng-template>
+
+<input type="file" (change)="onFileChange($event)" multiple="false" style="display: none;" #fileUpload/>

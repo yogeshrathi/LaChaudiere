@@ -1,8 +1,10 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { GeneralService } from 'src/app/core/services/general.service';
 import { UserService } from 'src/app/core/services/user.service';
+import * as XLSX from 'xlsx';
+type AOA = any[][];
 
 @Component({
   selector: 'app-customers',
@@ -13,6 +15,12 @@ export class CustomersComponent implements OnInit {
   modalRef?: BsModalRef;
   users: Array<any> = [];
   search: string = '';
+
+  data: AOA = [[1, 2], [3, 4]];
+  wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
+  fileName: string = 'SheetJS.xlsx';
+
+  @ViewChild('fileUpload', { static: false }) fileUpload!: ElementRef;
 
   userForm = new FormGroup({
     clientId: new FormControl('', Validators.required),
@@ -40,7 +48,8 @@ export class CustomersComponent implements OnInit {
 
   isSubmitted = false;
   selectedUser: any;
-  currentUser= '';
+  currentUser = '';
+
 
 
   constructor(private userService: UserService, private modalService: BsModalService,
@@ -60,14 +69,13 @@ export class CustomersComponent implements OnInit {
     })
   }
 
-
   openModal(template: TemplateRef<any>, isEdit: boolean, user?: any) {
-    if(isEdit){
+    if (isEdit) {
       this.userForm.patchValue(user);
       this.userForm.patchValue({
         confirmPassword: user.password
       })
-    } else{
+    } else {
       this.userForm.reset();
       this.userForm.patchValue({
         role: 'client'
@@ -108,8 +116,8 @@ export class CustomersComponent implements OnInit {
     }
   }
 
-  deleteUser(clientId: any){
-    this.userService.deleteCustomer({clientId: clientId}).subscribe(res => {
+  deleteUser(clientId: any) {
+    this.userService.deleteCustomer({ clientId: clientId }).subscribe(res => {
       if (res) {
         this.generalApi.displaySuccess("Success", "User deleted successfully");
         this.getCustomers();
@@ -117,5 +125,59 @@ export class CustomersComponent implements OnInit {
     }, err => {
       this.generalApi.displayError("Error", err.error.message);
     })
+  }
+
+  onFileChange(evt: any) {
+    /* wire up file reader */
+    const target: DataTransfer = <DataTransfer>(evt.target);
+    if (target.files.length !== 1) throw new Error('Cannot use multiple files');
+    const reader: FileReader = new FileReader();
+    reader.onload = (e: any) => {
+      /* read workbook */
+      const bstr: string = e.target.result;
+      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
+
+      /* grab first sheet */
+      const wsname: string = wb.SheetNames[0];
+      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+
+      /* save data */
+      this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
+
+
+      this.data.forEach((data) => {
+        if (!isNaN(data[0])) {
+          this.userService.addUser({
+            clientId: `LC${data[0]}`,
+            name: data[1],
+            email: data[2],
+            phone: data[3],
+            isActive: data[4] == 'Inactive' ? false : true,
+            address: data[5],
+            city: data[6],
+            postalCode: data[7],
+            companyName: data[8],
+            location: data[9],
+            monday: data[10] == 'x' ? true : false,
+            tuesday: data[11] == 'x' ? true : false,
+            wednesday: data[12] == 'x' ? true : false,
+            thursday: data[13] == 'x' ? true : false,
+            friday: data[14] == 'x' ? true : false,
+            saturday: data[15] == 'x' ? true : false,
+            sunday: false,
+          }).subscribe((res: any) => {
+            console.log("res:", res);
+          }, err => {
+            this.generalApi.displayError("Error", err.error.message);
+          });
+        }
+      })
+
+    };
+    reader.readAsBinaryString(target.files[0]);
+  }
+
+  handleImport() {
+    this.fileUpload.nativeElement.click();
   }
 }
