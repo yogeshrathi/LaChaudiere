@@ -117,3 +117,13 @@ input:checked+.slider:before {
     display: inline-block;
     font-weight: normal;
 }
+
+@media screen and (max-width: 760px) {
+    .margin-0 {
+        margin-top: 15px;
+        margin-bottom: 0px;
+    }
+    .day {
+        width: 50%;
+    }
+}
