@@ -10,6 +10,7 @@ export class GeneralService {
   constructor(private toastrService: ToastrService) { }
   public hideLinks = false;
   public isUserChange = new BehaviorSubject<boolean>(false);
+  public selectedLanguage = 'en';
 
   public displayError(title: string, message: string = ''): void {
     this.toastrService.error(message, title);

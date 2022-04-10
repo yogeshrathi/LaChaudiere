@@ -7,6 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FormsModule,
     ToastrModule.forRoot(),
     RouterModule,
+    TranslateModule
   ], exports:  [
     HeaderComponent,
     FooterComponent,

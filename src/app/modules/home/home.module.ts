@@ -13,6 +13,7 @@ import { DpDatePickerModule } from 'ng2-date-picker';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { LightboxModule } from 'ngx-lightbox';
 import { AngularMyDatePickerModule } from 'angular-mydatepicker';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AngularMyDatePickerModule } from 'angular-mydatepicker';
     Ng2SearchPipeModule,
     DpDatePickerModule,
     LightboxModule,
-    AngularMyDatePickerModule
+    AngularMyDatePickerModule,
+    TranslateModule
   ]
 })
 export class HomeModule { }

@@ -2,7 +2,7 @@
     <div class="top-row">
         <div class="container">
             <div class="ct-row d-flex flex-wrap">
-                <div class="lang"><a href="#">Français</a></div>
+                <div class="lang"><a href="javascript: void(0)" (click)="changeLanguage()">{{selectedLanguage}}</a></div>
                 <div class="logout" *ngIf="!generalService.hideLinks"><a href="javascript: void(0)" (click)="handleLogout()">Log out</a></div>
             </div>
         </div>
@@ -30,7 +30,7 @@
     <div class="top-row">
         <div class="container">
             <div class="ct-row d-flex flex-wrap">
-                <div class="lang"><a href="#">Français</a></div>
+                <div class="lang"><a href="javascript: void(0)" (click)="changeLanguage()">{{selectedLanguage}}</a></div>
                 <div class="logout" *ngIf="!generalService.hideLinks"><a href="javascript: void(0)" (click)="handleLogout()">Log out</a></div>
             </div>
         </div>
@@ -45,8 +45,8 @@
                 <div class="menu" *ngIf="!generalService.hideLinks">
                     <ul>
                         <li [routerLink]="['/admin/portal']" routerLinkActive="active"><a href="javascript: void(0)">Home</a></li>
-                        <li [routerLink]="['/admin/customers']" routerLinkActive="active"><a href="javascript: void(0)">Manage Customers</a></li>
-                        <li [routerLink]="['/admin/products']" routerLinkActive="active"><a href="javascript: void(0)">Manage Products</a></li>
+                        <li [routerLink]="['/admin/customers']" routerLinkActive="active"><a href="javascript: void(0)">{{ 'manageCustomers' | translate }}</a></li>
+                        <li [routerLink]="['/admin/products']" routerLinkActive="active"><a href="javascript: void(0)">{{'manageProducts' | translate}}</a></li>
                     </ul>
                 </div>
             </div>

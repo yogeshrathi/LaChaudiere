@@ -1,30 +1,30 @@
 <section class="place-order-block">
     <div class="container">
         <div class="top-row">
-            <h3>Manage Products</h3>
+            <h3>{{'manageProducts' | translate}}</h3>
             <form>
-                <input type="search" name="" [(ngModel)]="search" placeholder="Search" [ngModelOptions]="{standalone: true}">
+                <input type="search" name="" [(ngModel)]="search" placeholder="{{'search' | translate}}" [ngModelOptions]="{standalone: true}">
             </form>
             <div class="bottom-btn margin-0">
-                <a href="javascript: void(0)" (click)="openModal(template, false)">Add New Product</a>
+                <a href="javascript: void(0)" (click)="openModal(template, false)">{{'addNewProduct' | translate}}</a>
             </div>
         </div>
         <div class="po-data-table admin">
             <div class="pod-heading-row">
-                <div class="number po-col">Product number</div>
-                <div class="name po-col">Product name</div>
-                <div class="img po-col">Product image</div>
+                <div class="number po-col">{{'productNumber' | translate}}</div>
+                <div class="name po-col">{{'productName' | translate}}</div>
+                <div class="img po-col">{{'productImage' | translate}}</div>
                 <div class="action po-col">Action</div>
-                <div class="action po-col">Delete</div>
+                <div class="action po-col">{{'delete' | translate}}</div>
             </div>
             <div class="pod-data-row" *ngFor="let item of products | filter:search; let i = index">
                 <div class="number po-col">Product {{i + 1}}</div>
                 <div class="name po-col">{{item.product_name}}</div>
                 <div class="img po-col" (click)="onImageClick(item)"><img src="{{item.imageUrl}}" alt=""></div>
-                <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="openModal(template, true, item)">Edit Item</a></div>
-                <div class="action po-col"><span>Delete</span>
+                <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="openModal(template, true, item)">{{'editItem' | translate}}</a></div>
+                <div class="action po-col"><span>{{'delete' | translate}}</span>
                     <a href="javascript: void(0)" (click)="deleteItem(item._id)">
-                        Delete</a>
+                        {{'delete' | translate}}</a>
                 </div>
 
             </div>
@@ -35,7 +35,7 @@
 <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">
-            {{(productForm?.value.product_name && (productForm?.value._id != '')) ? productForm?.value.product_name : 'Add New Product'}}
+            {{(productForm?.value.product_name && (productForm?.value._id != '')) ? productForm?.value.product_name : ('addNewProduct' | translate)}}
         </h4>
         <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
             <span aria-hidden="true" class="visually-hidden">&times;</span>
@@ -46,7 +46,7 @@
             <form class="common-form" #f="ngForm" [formGroup]="productForm">
                 <div class="field-row">
                     <div class="field-group width-100" [ngClass]="{'field-error': productForm?.controls?.product_name?.errors && isSubmitted}">
-                        <label>Product Name</label>
+                        <label>{{'productName' | translate}}</label>
                         <span class="error-span" *ngIf="(productForm?.controls?.product_name?.errors && isSubmitted)">
                             Please enter Product Name
                         </span>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="field-row">
                     <div class="field-group d-flex gap-20 align-end">
-                        <label>Active </label>
+                        <label>{{'active' | translate}}</label>
                         <label class="switch">
                             <input type="checkbox" formControlName="isAvailable">
                             <span class="slider round"></span>
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="bottom-row">
-                    <input type="submit" name="" [value]="(!productForm?.value._id) ? 'Save': 'Edit'" (click)="updateProduct()">
+                    <input type="submit" name="" [value]="(!productForm?.value._id) ? 'Save': ('edit' | translate)" (click)="updateProduct()">
                 </div>
             </form>
         </div>

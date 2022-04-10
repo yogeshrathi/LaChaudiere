@@ -9,7 +9,7 @@
          <form class="common-form" #f="ngForm" [formGroup]="loginForm">
             <div class="field-row">
                <div class="field-group">
-                  <label>Client ID</label>
+                  <label>{{'clientId' | translate}}</label>
                   <input type="text" formControlName="clientId" name="" required="">
                   <div class="error" *ngIf="(loginForm?.controls?.clientId?.errors && isLoginSubmitted)">
                      Please enter a valid client Id.
@@ -44,7 +44,7 @@
          <form class="common-form" #f="ngForm" [formGroup]="generatePasswordForm">
             <div class="field-row">
                <div class="field-group">
-                  <label>Client ID</label>
+                  <label>{{'clientId' | translate}}</label>
                   <input type="text" formControlName="clientId" name="" required="">
                   <div class="error" *ngIf="(generatePasswordForm?.controls?.clientId?.errors && isSubmitted)">
                      Please enter a valid client Id.

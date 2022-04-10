@@ -8,6 +8,7 @@ import { ProductsComponent } from './products/products.component';
 import { CustomersComponent } from './customers/customers.component';
 import { LightboxModule } from 'ngx-lightbox';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AdminRoutingModule,
     Ng2SearchPipeModule,
     LightboxModule,
-    SharedModule
+    SharedModule,
+    TranslateModule
   ]
 })
 export class AdminModule { }
