@@ -6,7 +6,7 @@
                 <input type="search" name="" [(ngModel)]="search" placeholder="{{'search' | translate}}" [ngModelOptions]="{standalone: true}">
             </form>
             <div class="bottom-btn margin-0">
-                <a href="javascript: void(0)" (click)="openModal(template, false)">{{'addNewProduct' | translate}}</a>
+                <a id="add-new-product" href="javascript: void(0)" (click)="openModal(template, false)">{{'addNewProduct' | translate}}</a>
             </div>
         </div>
         <div class="po-data-table admin">
@@ -50,7 +50,7 @@
                         <span class="error-span" *ngIf="(productForm?.controls?.product_name?.errors && isSubmitted)">
                             Please enter Product Name
                         </span>
-                        <input type="text" formControlName="product_name" name="" required="">
+                        <input type="text" formControlName="product_name" name="product_name" required="">
                     </div>
                 </div>
 
@@ -60,7 +60,7 @@
                         <span class="error-span" *ngIf="(productForm?.controls?.imageUrl?.errors && isSubmitted)">
                             Please enter image url
                         </span>
-                        <input type="text" formControlName="imageUrl" name="" required="">
+                        <input type="text" formControlName="imageUrl" name="imageUrl" required="">
                     </div>
                 </div>
 
@@ -70,7 +70,7 @@
                         <span class="description-span" *ngIf="(productForm?.controls?.description?.errors && isSubmitted)">
                             Please enter imageUrl
                         </span>
-                        <input type="text" formControlName="description" name="" required="">
+                        <input type="text" formControlName="description" name="description" required="">
                     </div>
 
                 </div>
@@ -78,7 +78,7 @@
                     <div class="field-group d-flex gap-20 align-end">
                         <label>{{'active' | translate}}</label>
                         <label class="switch">
-                            <input type="checkbox" formControlName="isAvailable">
+                            <input type="checkbox" formControlName="isAvailable" name="isAvailable">
                             <span class="slider round"></span>
                         </label>
                     </div>
