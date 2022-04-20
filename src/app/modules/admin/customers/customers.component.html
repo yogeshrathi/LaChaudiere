@@ -1,7 +1,7 @@
 <section class="place-order-block">
     <div class="container">
         <div class="top-row">
-            <h3>{{'manageCustomers' | translate}}</h3>
+            <h3 class="manage">{{'manageCustomers' | translate}}</h3>
             <form>
                 <input type="search" name="" [(ngModel)]="search" placeholder="{{'search' | translate}}" [ngModelOptions]="{standalone: true}">
             </form>
@@ -36,8 +36,8 @@
                 <!-- <div class="city po-col">{{item.city}}</div>
                 <div class="phone po-col">{{item.phone}}</div>
                 <div class="address po-col">{{item.address}}</div> -->
-                <div class="action po-col"><span>Action</span><a href="javascript: void(0)" *ngIf="currentUser != item.clientId" (click)="openModal(template, true, item)">{{'editItem' | translate}}</a></div>
-                <div class="action po-col"><span>{{'delete' | translate}}</span><a href="javascript: void(0)" *ngIf="currentUser != item.clientId" (click)="deleteUser(item.clientId)">Delete Item</a></div>
+                <div class="action po-col editcust"><span>Action</span><a href="javascript: void(0)" class="editcust" *ngIf="currentUser != item.clientId" (click)="openModal(template, true, item)">{{'editItem' | translate}}</a></div>
+                <div class="action po-col"><span title="Delete">{{'delete' | translate}}</span><a href="javascript: void(0)" class="delcust" *ngIf="currentUser != item.clientId" (click)="deleteUser(item.clientId)">Delete Item</a></div>
             </div>
         </div>
     </div>
