@@ -10,14 +10,14 @@
             <div class="field-row">
                <div class="field-group">
                   <label>{{'clientId' | translate}}</label>
-                  <input type="text" formControlName="clientId" name="" required="">
+                  <input type="text" formControlName="clientId" name="" id="clientId"required="">
                   <div class="error" *ngIf="(loginForm?.controls?.clientId?.errors && isLoginSubmitted)">
                      Please enter a valid client Id.
                   </div>
                </div>
                <div class="field-group">
                   <label>Client Password</label>
-                  <input type="password" formControlName="clientPassword" name="" required="">
+                  <input type="password" formControlName="clientPassword" name="" id="clientPassword" required="">
                   <div class="error" *ngIf="(loginForm?.controls?.clientPassword?.errors && isLoginSubmitted)">
                      Please enter a password.
                   </div>
@@ -27,7 +27,7 @@
                <!-- <div class="forgot-link">
                   <a href="javascript: void(0)" (click)="forgetPassword()">Forget your password</a>
                </div> -->
-               <input type="submit" name="" value="Login" (click)="login()">
+               <input type="submit" name="" value="Login" id="login" (click)="login()">
             </div>
          </form>
       </div>
