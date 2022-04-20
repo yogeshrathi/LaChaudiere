@@ -17,14 +17,20 @@ describe("login", () => {
         cy.login('LC01', 'Yogesh@123');
         cy.get('app-portal .prod').click();
         cy.url().should('includes', 'admin/products');
-        cy.get('#623576cf4ed8813db41ee1b0').click();
-        cy.get('#Test 1').should('not.exist');
+        cy.get('#623576674ed8813db41ee1aa').click();
+        cy.get('#623576674ed8813db41ee1aa').should('not.exist');
     })
-    it("search product", () => {
+})
+
+describe("Search Product", () => {
+    it("search rainbow", () => {    
+        cy.login('LC01', 'Yogesh@123');
+        cy.get('app-portal .prod').click();
+        cy.url().should('includes', 'admin/products');
+        cy.wait(5000);
         cy.xpath('/html/body/app-root/app-admin/app-products/section/div/div[1]/form/input').clear().type("Rainbow");
     });
-    
-})
+});
 
 
 

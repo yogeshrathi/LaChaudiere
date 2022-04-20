@@ -29,6 +29,7 @@ describe("customers", () => {
         cy.get('#login')
         .click();
         cy.get("#customers").click();
+        cy.wait(3000);
         cy.get("#add").click();
       });
       it("should go to save new customers data", () => {
@@ -38,6 +39,7 @@ describe("customers", () => {
         cy.get('#login')
         .click();
         cy.get("#customers").click();
+        cy.wait(3000);
         cy.get("#add").click();
         cy.get('#clientId').type('LC012');
         cy.get('#name').type('Jane');

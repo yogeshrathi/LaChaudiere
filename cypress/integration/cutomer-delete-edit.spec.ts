@@ -33,13 +33,14 @@ describe("login", () => {
         cy.login('LC01', 'Yogesh@123');
         cy.get('app-portal #customers').click();
         cy.url().should('includes', 'admin/customers');
-        cy.get('#delete_LC1865').click();
-        cy.get('#delete_LC1865').should('not.exist');
+        cy.get('#delete_LC8065').click();
+        cy.wait(5000);
+        cy.get('#delete_LC8065').should('not.exist');
     })
     
 })
 
-describe("Customer edit scenarios", () => {
+xdescribe("Customer edit scenarios", () => {
     it("login as admin", () => {
         cy.login('LC01', 'Yogesh@123');
         cy.url().should('includes', 'admin/portal');
@@ -49,12 +50,13 @@ describe("Customer edit scenarios", () => {
     })
 
 
-    it("search and open desired customer", () => {
+    it("search desired customer", () => {
+        cy.wait(10000);
         cy.xpath('/html/body/app-root/app-admin/app-customers/section/div/div[1]/form/input').clear().type('LC3879');
         cy.xpath('//*[@id="customers_0"]').click();
     });
 
-    it("search and open desired customer", () => {
+    it("open edit modal", () => {
         cy.get('#clientId').clear().type('LC3879');
         cy.get('#name').clear().type('TANIA CHAMPAGNE');
         cy.get('#email').clear().type('epicerieshenley@hotmail.com');
