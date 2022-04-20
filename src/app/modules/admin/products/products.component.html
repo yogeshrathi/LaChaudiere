@@ -23,7 +23,7 @@
                 <div class="img po-col" (click)="onImageClick(item)"><img src="{{item.imageUrl}}" alt=""></div>
                 <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="openModal(template, true, item)">{{'editItem' | translate}}</a></div>
                 <div class="action po-col"><span>{{'delete' | translate}}</span>
-                    <a href="javascript: void(0)" (click)="deleteItem(item._id)">
+                    <a href="javascript: void(0)" (click)="deleteItem(item._id)" id="{{item.product_name}}">
                         {{'delete' | translate}}</a>
                 </div>
 
