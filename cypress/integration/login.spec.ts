@@ -3,7 +3,7 @@ describe('Login', () => {
       cy.visit('/');
       cy.url().should('includes', 'login');
       cy.get('[formControlName="clientId"]').type('LC01');
-      cy.get('button').click();
+      cy.get('#login').click();
       cy.url().should('not.include', 'admin/portal');
     });
   

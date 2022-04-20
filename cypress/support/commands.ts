@@ -14,7 +14,7 @@ declare namespace Cypress{
     cy.url().should('includes', 'login');
     cy.get('[formControlName="clientId"]').type(clientId);
     cy.get('[formControlName="clientPassword"]').type(clientPassword);
-    cy.get('button').click();
+    cy.get('#login').click();
   }
   //
   // NOTE: You can use it like so:
