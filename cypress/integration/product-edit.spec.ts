@@ -20,6 +20,9 @@ describe("login", () => {
         cy.get('#Test 1').click();
         cy.get('#Test 1').should('not.exist');
     })
+    it("search product", () => {
+        cy.xpath('/html/body/app-root/app-admin/app-products/section/div/div[1]/form/input').clear().type("Rainbow");
+    });
     
 })
 
