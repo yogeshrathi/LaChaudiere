@@ -17,7 +17,7 @@ describe("login", () => {
         cy.login('LC01', 'Yogesh@123');
         cy.get('app-portal .prod').click();
         cy.url().should('includes', 'admin/products');
-        cy.get('#Test 1').click();
+        cy.get('#623576cf4ed8813db41ee1b0').click();
         cy.get('#Test 1').should('not.exist');
     })
     it("search product", () => {
