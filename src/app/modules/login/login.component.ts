@@ -70,6 +70,7 @@ export class LoginComponent extends SubscriptionDisposer implements OnInit, OnDe
       }).subscribe(res => {
         // console.log(res);
         this.toastr.success('Login successfully');
+        console.log(res.accessToken);
         localStorage.setItem('token', res.accessToken);
         localStorage.setItem('userId', this.loginForm.value.clientId);
         this.generalService.isUserChange.next(true);

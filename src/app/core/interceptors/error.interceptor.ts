@@ -31,7 +31,8 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
         this.spinner.show();
-        return next.handle(this.addToken(request, (localStorage.getItem('token') || '')))
+        const token = localStorage.getItem('token') || '';
+        return next.handle(this.addToken(request, (token)))
             .pipe(
                 finalize(() => this.spinner.hide()),
                 catchError((error: HttpErrorResponse) => {
@@ -56,12 +57,16 @@ export class ErrorInterceptor implements HttpInterceptor {
     }
 
     private addToken(req: HttpRequest<any>, token: string): HttpRequest<any> {
+        console.log(123);
         if (req.url.indexOf(environment.apiUrl) == -1) {
+            console.log(456);
             return req;
         }
         else if (this.isAccessToken(req.url)) {
+            console.log(789);
             return req;
         }
+        console.log(token);
         return req.clone({ setHeaders: { authorization: token } });
     }
 
