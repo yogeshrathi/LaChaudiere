@@ -69,9 +69,11 @@ export class CustomersComponent implements OnInit {
     })
   }
 
-  openModal(template: TemplateRef<any>, isEdit: boolean, user?: any) {
+  openModal(template: TemplateRef<any>, isEdit: boolean, user?: any, ) {
     if (isEdit) {
       this.userForm.patchValue(user);
+      // var cls = document.getElementsByClassName("editcust");
+      // cls[i].setAttribute('id','edit');
       this.userForm.patchValue({
         confirmPassword: user.password
       })
