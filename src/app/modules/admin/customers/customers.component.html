@@ -6,7 +6,7 @@
                 <input type="search" name="" [(ngModel)]="search" placeholder="{{'search' | translate}}" [ngModelOptions]="{standalone: true}">
             </form>
             <div class="bottom-btn margin-0">
-                <a href="javascript: void(0)" (click)="openModal(template, false)">{{'addNewCustomer' | translate}}</a>
+                <a href="javascript: void(0)" (click)="openModal(template, false)" id="add">{{'addNewCustomer' | translate}}</a>
             </div>
             <div class="bottom-btn margin-0">
                 <a href="javascript: void(0)" (click)="handleImport()">
@@ -61,14 +61,14 @@
                         <span class="error-span" *ngIf="(userForm?.controls?.clientId?.errors && isSubmitted)">
                         Please enter name
                     </span>
-                        <input type="text" formControlName="clientId" name="" required="">
+                        <input type="text" formControlName="clientId" name="" id="clientId" required="">
                     </div>
                     <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.name?.errors && isSubmitted}">
                         <label>{{'name' | translate}}</label>
                         <span class="error-span" *ngIf="(userForm?.controls?.name?.errors && isSubmitted)">
                             Please enter name
                         </span>
-                        <input type="text" formControlName="name" name="" required="">
+                        <input type="text" formControlName="name" name="" id="name" required="">
                     </div>
                 </div>
                 <div class="field-row">
@@ -77,7 +77,7 @@
                         <span class="error-span" *ngIf="(userForm?.controls?.email?.errors && isSubmitted)">
                             Please enter valid email
                         </span>
-                        <input type="text" formControlName="email" name="" required="">
+                        <input type="text" formControlName="email" name="" id="email" required="">
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                     ((userForm.value.password !== userForm.value.confirmPassword) && isSubmitted))">
                             Please enter password
                         </span>
-                        <input type="password" formControlName="password" name="" required="">
+                        <input type="password" formControlName="password" name="" id="password" required="">
                     </div>
                     <div class="field-group" [ngClass]="{'field-error': ((userForm?.controls?.password?.errors || userForm.value.password !== userForm.value.confirmPassword) && isSubmitted)}">
                         <label>{{'passwordConfirmation' | translate}}</label>
@@ -96,7 +96,7 @@
                     ((userForm.value.password !== userForm.value.confirmPassword) && isSubmitted))">
                             Please enter confirm password
                         </span>
-                        <input type="password" formControlName="confirmPassword" name="" required="">
+                        <input type="password" formControlName="confirmPassword" name="" id="confirmPassword" required="">
                     </div>
                 </div>
 
@@ -106,14 +106,14 @@
                         <span class="error-span" *ngIf="(userForm?.controls?.phone?.errors && isSubmitted)">
                             Please enter Phone number
                         </span>
-                        <input type="text" formControlName="phone" name="" required="">
+                        <input type="text" formControlName="phone" name="" id="phone" required="">
                     </div>
                     <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.address?.errors && isSubmitted}">
                         <label>{{'address' | translate}}</label>
                         <span class="error-span" *ngIf="(userForm?.controls?.address?.errors && isSubmitted)">
                             Please enter address
                         </span>
-                        <input type="text" name="" required="" formControlName="address">
+                        <input type="text" name="" required="" formControlName="address" id="address">
                     </div>
                 </div>
 
@@ -123,14 +123,14 @@
                         <span class="error-span" *ngIf="(userForm?.controls?.postalCode?.errors && isSubmitted)">
                             Please enter Postal code
                         </span>
-                        <input type="text" formControlName="postalCode" name="" required="">
+                        <input type="text" formControlName="postalCode" name="" required="" id="postalCode">
                     </div>
                     <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.city?.errors && isSubmitted}">
                         <label>{{'city' | translate}}</label>
                         <span class="error-span" *ngIf="(userForm?.controls?.city?.errors && isSubmitted)">
                             Please enter city
                         </span>
-                        <input type="text" formControlName="city" name="" required="">
+                        <input type="text" formControlName="city" name="" required=""  id="city">
                     </div>
                 </div>
 
@@ -140,12 +140,12 @@
                         <span class="error-span" *ngIf="(userForm?.controls?.companyName?.errors && isSubmitted)">
                             Please enter Company name
                         </span>
-                        <input type="text" formControlName="companyName" name="" required="">
+                        <input type="text" formControlName="companyName" name="" required="" id="companyName">
                     </div>
                     <div class="field-group">
                         <label>Role</label>
                         <div class="d-flex margin-top-sm align-baseline justify-left">
-                            <input type="radio" class="width-20" id="Admin" formControlName="role" name="role" value="admin">
+                            <input type="radio" class="width-20" id="Admin" formControlName="role" name="role" value="admin" id="admin">
                             <label for="Admin">Admin</label>
                             <input type="radio" class="width-20" id="Client" formControlName="role" name="role" value="client">
                             <label for="Client">Client</label>
@@ -156,7 +156,7 @@
                 <div class="field-row">
                     <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.location?.errors && isSubmitted}">
                         <label>{{'location' | translate}}</label>
-                        <input type="text" formControlName="location" name="" required="">
+                        <input type="text" formControlName="location" name="" required="" id="location">
                         <span class="error-span" *ngIf="(userForm?.controls?.location?.errors && isSubmitted)">
                             Please enter Location
                         </span>
@@ -209,7 +209,7 @@
                 </div>
 
                 <div class="bottom-row">
-                    <input type="submit" name="" [value]="(!userForm?.value._id) ? 'Save': ('edit' | translate)" (click)="updateUser()">
+                    <input type="submit" name="" id="saveCustomer" [value]="(!userForm?.value._id) ? 'Save': ('edit' | translate)" (click)="updateUser()">
                 </div>
             </form>
         </div>
