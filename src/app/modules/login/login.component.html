@@ -1,62 +1,67 @@
 <app-header></app-header>
 <section class="form-section">
-   <div class="container">
-      <div class="wrap m-auto">
-         <div class="title">
-            <h2>Login</h2>
-         </div>
-         <div class="note">To log into your account, please enter your client ID and password</div>
-         <form class="common-form" #f="ngForm" [formGroup]="loginForm">
-            <div class="field-row">
-               <div class="field-group">
-                  <label>{{'clientId' | translate}}</label>
-                  <input type="text" formControlName="clientId" name="" required="">
-                  <div class="error" *ngIf="(loginForm?.controls?.clientId?.errors && isLoginSubmitted)">
-                     Please enter a valid client Id.
-                  </div>
-               </div>
-               <div class="field-group">
-                  <label>Client Password</label>
-                  <input type="password" formControlName="clientPassword" name="" required="">
-                  <div class="error" *ngIf="(loginForm?.controls?.clientPassword?.errors && isLoginSubmitted)">
-                     Please enter a password.
-                  </div>
-               </div>
+    <div class="container">
+        <div class="wrap m-auto">
+            <div class="title">
+                <h2>{{'login' | translate}}</h2>
             </div>
-            <div class="bottom-row">
-               <!-- <div class="forgot-link">
+            <div class="note">{{'toLoginIntoAcc' | translate}}</div>
+            <form class="common-form" #f="ngForm" [formGroup]="loginForm">
+                <div class="field-row">
+                    <div class="field-group">
+                        <label>{{'clientId' | translate}}</label>
+                        <input type="text" formControlName="clientId" name="" required="">
+                        <div class="error" *ngIf="(loginForm?.controls?.clientId?.errors && isLoginSubmitted)">
+                            {{'pleaseEnterValidClientId' | translate}}
+                        </div>
+                    </div>
+                    <div class="field-group">
+                        <label>{{'clientPassword' | translate}}</label>
+                        <input type="password" formControlName="clientPassword" name="" required="">
+                        <div class="error" *ngIf="(loginForm?.controls?.clientPassword?.errors && isLoginSubmitted)">
+
+                            {{'pleaseEnterValidPassword' | translate}}
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-row">
+                    <!-- <div class="forgot-link">
                   <a href="javascript: void(0)" (click)="forgetPassword()">Forget your password</a>
                </div> -->
-               <input type="submit" name="" value="Login" (click)="login()">
-            </div>
-         </form>
-      </div>
-   </div>
+                    <button class="btn-submit" (click)="login()">
+                  {{'login' | translate}}
+               </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </section>
 
 <section class="form-section">
-   <div class="container">
-      <div class="wrap m-auto">
-         <div class="title">
-            <h2>Generate password</h2>
-         </div>
-         <div class="note">You do not have a password, please enter your client ID and click send</div>
-         <form class="common-form" #f="ngForm" [formGroup]="generatePasswordForm">
-            <div class="field-row">
-               <div class="field-group">
-                  <label>{{'clientId' | translate}}</label>
-                  <input type="text" formControlName="clientId" name="" required="">
-                  <div class="error" *ngIf="(generatePasswordForm?.controls?.clientId?.errors && isSubmitted)">
-                     Please enter a valid client Id.
-                  </div>
-               </div>
+    <div class="container">
+        <div class="wrap m-auto">
+            <div class="title">
+                <h2>{{'generatePassword' | translate}}</h2>
+            </div>
+            <div class="note">{{'youDont' | translate}}</div>
+            <form class="common-form" #f="ngForm" [formGroup]="generatePasswordForm">
+                <div class="field-row">
+                    <div class="field-group">
+                        <label>{{'clientId' | translate}}</label>
+                        <input type="text" formControlName="clientId" name="" required="">
+                        <div class="error" *ngIf="(generatePasswordForm?.controls?.clientId?.errors && isSubmitted)">
+                            {{'pleaseEnterValidClientId' | translate}}
+                        </div>
+                    </div>
 
-            </div>
-            <div class="bottom-row">
-               <input type="submit" name="" value="Send" (click)="forgetPassword()">
-            </div>
-         </form>
-      </div>
-   </div>
+                </div>
+                <div class="bottom-row">
+                    <button class="btn-submit" (click)="forgetPassword()">
+                  {{'send' | translate}}
+               </button>
+                </div>
+            </form>
+        </div>
+    </div>
 </section>
 <app-footer></app-footer>

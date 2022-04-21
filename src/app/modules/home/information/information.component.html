@@ -1,93 +1,93 @@
 <section class="my-information">
-  <div class="container">
-    <div class="wrap">
-      <div class="title-row">
-        <h2>My information | <span class="client-id">{{user.clientId}}</span></h2>
-      </div>
-      <form class="common-form" #f="ngForm" [formGroup]="userForm">
-        <div class="field-row">
-          <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.name?.errors && isSubmitted}">
-            <label>{{'name' | translate}}</label>
-            <span class="error-span" *ngIf="(userForm?.controls?.name?.errors && isSubmitted)">
-              Please enter name
+    <div class="container">
+        <div class="wrap">
+            <div class="title-row">
+                <h2>{{'myInfo' | translate}} | <span class="client-id">{{user.clientId}}</span></h2>
+            </div>
+            <form class="common-form" #f="ngForm" [formGroup]="userForm">
+                <div class="field-row">
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.name?.errors && isSubmitted}">
+                        <label>{{'name' | translate}}</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.name?.errors && isSubmitted)">
+              {{'pleaseEnterName' | translate}}
             </span>
-            <input type="text" formControlName="name" name="" required="">
-          </div>
-          <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.email?.errors && isSubmitted}">
-            <label>{{'email' | translate}}</label>
-            <span class="error-span" *ngIf="(userForm?.controls?.email?.errors && isSubmitted)">
-              Please enter valid email
+                        <input type="text" formControlName="name" name="" required="">
+                    </div>
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.email?.errors && isSubmitted}">
+                        <label>{{'email' | translate}}</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.email?.errors && isSubmitted)">
+              {{'pleaseEnterEmail' | translate}}
             </span>
-            <input type="text" formControlName="email" name="" required="">
-          </div>
-        </div>
-        <div class="field-row">
-          <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.password?.errors && isSubmitted}">
-            <label>{{'password' | translate}}</label>
-            <span class="error-span" *ngIf="((userForm?.controls?.password?.errors && isSubmitted) || 
+                        <input type="text" formControlName="email" name="" required="">
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.password?.errors && isSubmitted}">
+                        <label>{{'password' | translate}}</label>
+                        <span class="error-span" *ngIf="((userForm?.controls?.password?.errors && isSubmitted) || 
             ((userForm.value.password !== userForm.value.confirmPassword) && isSubmitted))">
-              Please enter password
+              {{'pleaseEnterPassword' | translate}}
             </span>
-            <input type="password" formControlName="password" name="" required="">
-          </div>
-          <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.confirmPassword?.errors && isSubmitted}">
-            <label>{{'passwordConfirmation' | translate}}</label>
-            <span class="error-span" *ngIf="((userForm?.controls?.confirmPassword?.errors && isSubmitted) || 
+                        <input type="password" formControlName="password" name="" required="">
+                    </div>
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.confirmPassword?.errors && isSubmitted}">
+                        <label>{{'passwordConfirmation' | translate}}</label>
+                        <span class="error-span" *ngIf="((userForm?.controls?.confirmPassword?.errors && isSubmitted) || 
             ((userForm.value.password !== userForm.value.confirmPassword) && isSubmitted))">
-              Please enter confirm password
+              {{'pleaseEnterConfirmPassword' | translate}}
             </span>
-            <input type="password" formControlName="confirmPassword" name="" required="">
-          </div>
-        </div>
-        <div class="field-row">
-          <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.phone?.errors && isSubmitted}">
-            <label>{{'phone' | translate}}</label>
-            <span class="error-span" *ngIf="(userForm?.controls?.phone?.errors && isSubmitted)">
-              Please enter Phone number
+                        <input type="password" formControlName="confirmPassword" name="" required="">
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.phone?.errors && isSubmitted}">
+                        <label>{{'phone' | translate}}</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.phone?.errors && isSubmitted)">
+              {{'pleaseEnterPhone' | translate}}
             </span>
-            <input type="text" formControlName="phone" name="" required="">
-          </div>
-          <div class="field-group">
-            <label>{{'address' | translate}}</label>
-            <input type="text" name="" required="" value={{user.address}} disabled>
-          </div>
-        </div>
-        <div class="field-row">
-          <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.postalCode?.errors && isSubmitted}">
-            <label>{{'postalCode' | translate}}</label>
-            <span class="error-span" *ngIf="(userForm?.controls?.postalCode?.errors && isSubmitted)">
-              Please enter Postal code
+                        <input type="text" formControlName="phone" name="" required="">
+                    </div>
+                    <div class="field-group">
+                        <label>{{'address' | translate}}</label>
+                        <input type="text" name="" required="" value={{user.address}} disabled>
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.postalCode?.errors && isSubmitted}">
+                        <label>{{'postalCode' | translate}}</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.postalCode?.errors && isSubmitted)">
+              {{'pleaseEnterPostalCode' | translate}}
             </span>
-            <input type="text" formControlName="postalCode" name="" required="">
-          </div>
-          <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.city?.errors && isSubmitted}">
-            <label>{{'city' | translate}}</label>
-            <span class="error-span" *ngIf="(userForm?.controls?.city?.errors && isSubmitted)">
-              Please enter city
+                        <input type="text" formControlName="postalCode" name="" required="">
+                    </div>
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.city?.errors && isSubmitted}">
+                        <label>{{'city' | translate}}</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.city?.errors && isSubmitted)">
+              {{'pleaseEnterCity' | translate}}
             </span>
-            <input type="text" formControlName="city" name="" required="">
-          </div>
-        </div>
-        <div class="field-row">
-          <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.companyName?.errors && isSubmitted}">
-            <label>{{'companyName' | translate}}</label>
-            <span class="error-span" *ngIf="(userForm?.controls?.companyName?.errors && isSubmitted)">
-              Please enter Company name
+                        <input type="text" formControlName="city" name="" required="">
+                    </div>
+                </div>
+                <div class="field-row">
+                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.companyName?.errors && isSubmitted}">
+                        <label>{{'companyName' | translate}}</label>
+                        <span class="error-span" *ngIf="(userForm?.controls?.companyName?.errors && isSubmitted)">
+              {{'pleaseEnterCompanyName' | translate}}
             </span>
-            <input type="text" formControlName="companyName" name="" required="">
-          </div>
-        </div>
-        <div class="bottom-row">
-          <input type="submit" name="" value="Edit" (click)="updateUser()">
-        </div>
-      </form>
+                        <input type="text" formControlName="companyName" name="" required="">
+                    </div>
+                </div>
+                <div class="bottom-row">
+                    <input type="submit" name="" [value]="('edit' | translate)" (click)="updateUser()">
+                </div>
+            </form>
 
-      <div class="title-row">
-        <h2>Account information</h2>
-      </div>
+            <div class="title-row">
+                <h2>{{'accountInfo' | translate}}</h2>
+            </div>
 
-      <div class="note">Account representative: {{user.name}}, {{user.phone}}</div>
+            <div class="note">{{'accountReprs' | translate}}: {{user.name}}, {{user.phone}}</div>
 
+        </div>
     </div>
-  </div>
 </section>

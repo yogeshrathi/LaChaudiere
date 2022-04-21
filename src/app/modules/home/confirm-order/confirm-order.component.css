@@ -1,0 +1,19 @@
+.po-data-table .pod-data-row .po-col.number {
+    width: 25%;
+}
+
+.po-data-table .pod-data-row .po-col.name {
+    width: 25%;
+}
+
+.po-data-table .pod-data-row .po-col.img {
+    width: 17%;
+}
+
+.po-data-table .pod-data-row .po-col.qty {
+    width: 17%;
+}
+
+.po-data-table .pod-data-row .po-col.action {
+    width: 21%;
+}

@@ -1,20 +1,20 @@
 <section class="portail-block">
     <div class="container">
         <div class="title-row">
-            <h2>Home</h2>
+            <h2>{{'home' | translate}}</h2>
         </div>
         <div class="wrap">
             <div class="listing d-flex flex-wrap">
                 <div class="box">
                     <div class="inside">
-                        <h3>My Information</h3>
+                        <h3>{{'myInfo' | translate}}</h3>
                         <a href="javascript: void(0)" [routerLink]="['/home/information']" routerLinkActive="router-link-active" class="border-btn">{{'edit' | translate}}</a>
                     </div>
                 </div>
                 <div class="box">
                     <div class="inside">
-                        <h3>Place an order</h3>
-                        <a href="javascript: void(0)" [routerLink]="['/home/products']" class="border-btn">Go</a>
+                        <h3>{{'placeOrder' | translate}}</h3>
+                        <a href="javascript: void(0)" [routerLink]="['/home/products']" class="border-btn">{{'go' | translate}}</a>
                     </div>
                 </div>
             </div>

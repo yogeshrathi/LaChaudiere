@@ -18,7 +18,7 @@
                 <div class="action po-col">{{'delete' | translate}}</div>
             </div>
             <div class="pod-data-row" *ngFor="let item of products | filter:search; let i = index">
-                <div class="number po-col">Product {{i + 1}}</div>
+                <div class="number po-col">{{'product' | translate}} {{i + 1}}</div>
                 <div class="name po-col">{{item.product_name}}</div>
                 <div class="img po-col" (click)="onImageClick(item)"><img src="{{item.imageUrl}}" alt=""></div>
                 <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="openModal(template, true, item)">{{'editItem' | translate}}</a></div>
@@ -48,7 +48,7 @@
                     <div class="field-group width-100" [ngClass]="{'field-error': productForm?.controls?.product_name?.errors && isSubmitted}">
                         <label>{{'productName' | translate}}</label>
                         <span class="error-span" *ngIf="(productForm?.controls?.product_name?.errors && isSubmitted)">
-                            Please enter Product Name
+                           {{'pleaseEnterTheProductName' | translate}}
                         </span>
                         <input type="text" formControlName="product_name" name="" required="">
                     </div>
@@ -56,9 +56,9 @@
 
                 <div class="field-row">
                     <div class="field-group width-100" [ngClass]="{'field-error': productForm?.controls?.imageUrl?.errors && isSubmitted}">
-                        <label>Image URL</label>
+                        <label>{{'imageURL' | translate}}</label>
                         <span class="error-span" *ngIf="(productForm?.controls?.imageUrl?.errors && isSubmitted)">
-                            Please enter image url
+                            {{'pleaseEnterImageURl' | translate}}
                         </span>
                         <input type="text" formControlName="imageUrl" name="" required="">
                     </div>
@@ -66,9 +66,9 @@
 
                 <div class="field-row">
                     <div class="field-group width-100" [ngClass]="{'field-error': productForm?.controls?.description?.errors && isSubmitted}">
-                        <label>Description</label>
+                        <label>{{'description' | translate}}</label>
                         <span class="description-span" *ngIf="(productForm?.controls?.description?.errors && isSubmitted)">
-                            Please enter imageUrl
+                           {{'pleaseEnterDescription' | translate}}
                         </span>
                         <input type="text" formControlName="description" name="" required="">
                     </div>
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="bottom-row">
-                    <input type="submit" name="" [value]="(!productForm?.value._id) ? 'Save': ('edit' | translate)" (click)="updateProduct()">
+                    <input type="submit" name="" [value]="(!productForm?.value._id) ? ('save' | translate): ('edit' | translate)" (click)="updateProduct()">
                 </div>
             </form>
         </div>
