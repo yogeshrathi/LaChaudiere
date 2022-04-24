@@ -166,7 +166,6 @@ export class ProductsComponent implements OnInit {
       this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
 
       console.log(this.data);
-      this.data.length = 2;
       this.data.forEach((data) => {
         if (!isNaN(data[0])) {
           this.userService.addProduct({
