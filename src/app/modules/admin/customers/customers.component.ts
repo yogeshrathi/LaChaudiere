@@ -50,8 +50,6 @@ export class CustomersComponent implements OnInit {
   selectedUser: any;
   currentUser = '';
 
-
-
   constructor(private userService: UserService, private modalService: BsModalService,
     private generalApi: GeneralService) { }
 

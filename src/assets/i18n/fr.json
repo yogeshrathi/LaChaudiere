@@ -60,7 +60,7 @@
     "product": "Produit",
     "pleaseEnterTheProductName": "Veuillez saisir le nom du produit",
     "pleaseEnterImageURl": "Veuillez saisir l'URL de l'image",
-    "imageURL": "URL de l'image",
+    "imageURL": "Image",
     "description": "La description",
     "pleaseEnterDescription": "Veuillez entrer la description",
     "save": "Sauvegarder",
@@ -81,6 +81,8 @@
     "client": "Cliente",
     "admin": "administrateur",
     "addToCart": "Ajouter au panier",
-    "orderConfirmation": "Confirmation de commande"
+    "orderConfirmation": "Confirmation de commande",
+    "importProductFromExcel": "Importer un produit depuis Excel",
+    "pleaseEnterProductNumber": "Veuillez entrer le numéro de produit"
 
 }

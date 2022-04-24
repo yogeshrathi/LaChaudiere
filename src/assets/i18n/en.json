@@ -60,7 +60,7 @@
     "product": "Product",
     "pleaseEnterTheProductName": "Please enter the product name.",
     "pleaseEnterImageURl": "Please enter image url.",
-    "imageURL": "Image URL",
+    "imageURL": "Image",
     "description": "Description",
     "pleaseEnterDescription": "Please enter description",
     "save": "Save",
@@ -81,6 +81,8 @@
     "client": "Client",
     "admin": "Admin",
     "addToCart": "Add to Cart",
-    "orderConfirmation": "Order confirmation"
+    "orderConfirmation": "Order confirmation",
+    "importProductFromExcel": "Import product from excel",
+    "pleaseEnterProductNumber": "Please enter product number"
 
 }

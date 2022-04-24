@@ -78,4 +78,12 @@ export class UserService {
     public deleteCustomer(data: any): Observable<any>{
         return this.httpClient.post(`${environment.apiUrl}user/delete`, data);
     }
+
+    public getSignature(): Observable<any>{
+        return this.httpClient.get(`${environment.apiSign}`);
+    }
+
+    public uploadFile(data: any): Observable<any>{
+        return this.httpClient.post('https://api.cloudinary.com/v1_1/dqosaghas/auto/upload', data);
+    }
 }

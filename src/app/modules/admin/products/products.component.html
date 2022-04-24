@@ -5,8 +5,13 @@
             <form>
                 <input type="search" name="" [(ngModel)]="search" placeholder="{{'search' | translate}}" [ngModelOptions]="{standalone: true}">
             </form>
-            <div class="bottom-btn margin-0">
+            <div class="bottom-btn margin-0 mr-10 ml-10">
                 <a href="javascript: void(0)" (click)="openModal(template, false)">{{'addNewProduct' | translate}}</a>
+            </div>
+            <div class="bottom-btn margin-0">
+                <a href="javascript: void(0)" (click)="handleImport()">
+               {{'importProductFromExcel'  | translate}}
+                </a>
             </div>
         </div>
         <div class="po-data-table admin">
@@ -18,7 +23,7 @@
                 <div class="action po-col">{{'delete' | translate}}</div>
             </div>
             <div class="pod-data-row" *ngFor="let item of products | filter:search; let i = index">
-                <div class="number po-col">{{'product' | translate}} {{i + 1}}</div>
+                <div class="number po-col">{{'product' | translate}} {{item.product_number}}</div>
                 <div class="name po-col">{{item.product_name}}</div>
                 <div class="img po-col" (click)="onImageClick(item)"><img src="{{item.imageUrl}}" alt=""></div>
                 <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="openModal(template, true, item)">{{'editItem' | translate}}</a></div>
@@ -53,6 +58,15 @@
                         <input type="text" formControlName="product_name" name="" required="">
                     </div>
                 </div>
+                <div class="field-row">
+                    <div class="field-group width-100" [ngClass]="{'field-error': productForm?.controls?.product_number?.errors && isSubmitted}">
+                        <label>{{'productNumber' | translate}}</label>
+                        <span class="error-span" *ngIf="(productForm?.controls?.product_number?.errors && isSubmitted)">
+                           {{'pleaseEnterProductNumber' | translate}}
+                        </span>
+                        <input type="number" formControlName="product_number" name="" required="">
+                    </div>
+                </div>
 
                 <div class="field-row">
                     <div class="field-group width-100" [ngClass]="{'field-error': productForm?.controls?.imageUrl?.errors && isSubmitted}">
@@ -60,7 +74,7 @@
                         <span class="error-span" *ngIf="(productForm?.controls?.imageUrl?.errors && isSubmitted)">
                             {{'pleaseEnterImageURl' | translate}}
                         </span>
-                        <input type="text" formControlName="imageUrl" name="" required="">
+                        <input type="file" (change)="onChangeLink($event)">
                     </div>
                 </div>
 
@@ -85,9 +99,10 @@
                 </div>
 
                 <div class="bottom-row">
-                    <input type="submit" name="" [value]="(!productForm?.value._id) ? ('save' | translate): ('edit' | translate)" (click)="updateProduct()">
+                    <input type="submit" name="" [value]="(!productForm?.value._id) ? ('save' | translate): ('edit' | translate)" (click)="upload()">
                 </div>
             </form>
         </div>
     </div>
 </ng-template>
+<input type="file" (change)="onFileChange($event)" multiple="false" style="display: none;" #fileUpload/>
