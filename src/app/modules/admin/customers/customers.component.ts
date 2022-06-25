@@ -24,17 +24,17 @@ export class CustomersComponent implements OnInit {
 
   userForm = new FormGroup({
     clientId: new FormControl('', Validators.required),
-    name: new FormControl("", [Validators.required]),
+    name: new FormControl(""),
     email: new FormControl("", [Validators.required, Validators.email]),
-    password: new FormControl("", [Validators.required, Validators.minLength(8)]),
-    confirmPassword: new FormControl("", [Validators.required, Validators.minLength(8)]),
-    phone: new FormControl("", [Validators.required, Validators.minLength(8)]),
-    address: new FormControl("", [Validators.required]),
-    postalCode: new FormControl("", [Validators.required]),
-    city: new FormControl("", [Validators.required]),
+    password: new FormControl(""),
+    confirmPassword: new FormControl(""),
+    phone: new FormControl(""),
+    address: new FormControl(""),
+    postalCode: new FormControl(""),
+    city: new FormControl(""),
     companyName: new FormControl("", [Validators.required]),
     role: new FormControl("client", [Validators.required]),
-    location: new FormControl("", [Validators.required]),
+    location: new FormControl(""),
     isActive: new FormControl(true),
     monday: new FormControl(false),
     tuesday: new FormControl(false),
@@ -68,7 +68,9 @@ export class CustomersComponent implements OnInit {
   }
 
   openModal(template: TemplateRef<any>, isEdit: boolean, user?: any) {
+    this.selectedUser = user;
     if (isEdit) {
+      this.userForm.reset();
       this.userForm.patchValue(user);
       this.userForm.patchValue({
         confirmPassword: user.password
@@ -146,7 +148,7 @@ export class CustomersComponent implements OnInit {
       this.data.forEach((data) => {
         if (!isNaN(data[0])) {
           this.userService.addUser({
-            clientId: `LC${data[0]}`,
+            clientId: `${data[0]}`,
             name: data[1],
             email: data[2],
             phone: data[3],

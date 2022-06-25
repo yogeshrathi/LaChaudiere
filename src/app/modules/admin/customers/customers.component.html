@@ -16,10 +16,10 @@
         </div>
         <div class="po-data-table customer">
             <div class="pod-heading-row">
-                <div class="number po-col">{{'customerNumber' | translate}}</div>
+                <!-- <div class="number po-col">{{'customerNumber' | translate}}</div> -->
                 <div class="client po-col">{{'clientId' | translate}}</div>
                 <div class="name po-col">{{'name' | translate}}</div>
-                <div class="email po-col">{{'email' | translate}}</div>
+                <!-- <div class="email po-col">{{'email' | translate}}</div> -->
                 <!-- <div class="c-name po-col">Company Name</div> -->
                 <!-- <div class="city po-col">City</div>
                 <div class="phone po-col">Phone</div>
@@ -28,16 +28,16 @@
                 <div class="action po-col">{{'delete' | translate}}</div>
             </div>
             <div class="pod-data-row" *ngFor="let item of users | filter:search; let i = index">
-                <div class="number po-col">{{'customer' | translate}} {{i + 1}}</div>
+                <!-- <div class="number po-col">{{'customer' | translate}} {{i + 1}}</div> -->
                 <div class="client po-col">{{item.clientId}}</div>
                 <div class="name po-col">{{item.name}}</div>
-                <div class="email po-col">{{item.email}}</div>
+                <!-- <div class="email po-col">{{item.email}}</div> -->
                 <!-- <div class="c-name po-col">{{item.companyName}}</div> -->
                 <!-- <div class="city po-col">{{item.city}}</div>
                 <div class="phone po-col">{{item.phone}}</div>
                 <div class="address po-col">{{item.address}}</div> -->
                 <div class="action po-col"><span>Action</span><a href="javascript: void(0)" *ngIf="currentUser != item.clientId" (click)="openModal(template, true, item)">{{'editItem' | translate}}</a></div>
-                <div class="action po-col"><span>{{'delete' | translate}}</span><a href="javascript: void(0)" *ngIf="currentUser != item.clientId" (click)="deleteUser(item.clientId)">Delete Item</a></div>
+                <div class="action po-col"><span>{{'delete' | translate}}</span><a href="javascript: void(0)" *ngIf="currentUser != item.clientId" (click)="deleteUser(item.clientId)">{{'delete' | translate}}</a></div>
             </div>
         </div>
     </div>
@@ -46,7 +46,7 @@
 <ng-template #template>
     <div class="modal-header">
         <h4 class="modal-title pull-left">
-            {{(userForm?.value.name && (userForm?.value._id != '')) ? userForm?.value.name : ('addNewCustomer' | translate)}}
+            {{(userForm?.value._id != '') ? selectedUser?.name : ('addNewCustomer' | translate)}}
         </h4>
         <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
             <span aria-hidden="true" class="visually-hidden">&times;</span>
@@ -63,11 +63,11 @@
                     </span>
                         <input type="text" formControlName="clientId" name="" required="">
                     </div>
-                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.name?.errors && isSubmitted}">
+                    <div class="field-group">
                         <label>{{'name' | translate}}</label>
-                        <span class="error-span" *ngIf="(userForm?.controls?.name?.errors && isSubmitted)">
+                        <!-- <span class="error-span" *ngIf="(userForm?.controls?.name?.errors && isSubmitted)">
                             {{'pleaseEnterName' | translate}}
-                        </span>
+                        </span> -->
                         <input type="text" formControlName="name" name="" required="">
                     </div>
                 </div>
@@ -82,54 +82,54 @@
                 </div>
 
                 <div class="field-row">
-                    <div class="field-group" [ngClass]="{'field-error': ((userForm?.controls?.password?.errors || userForm.value.password !== userForm.value.confirmPassword) && isSubmitted)}">
+                    <div class="field-group">
                         <label>{{'password' | translate}}</label>
-                        <span class="error-span" *ngIf="((userForm?.controls?.password?.errors && isSubmitted) || 
+                        <!-- <span class="error-span" *ngIf="((userForm?.controls?.password?.errors && isSubmitted) || 
                     ((userForm.value.password !== userForm.value.confirmPassword) && isSubmitted))">
                     {{'pleaseEnterPassword' | translate}}
-                        </span>
+                        </span> -->
                         <input type="password" formControlName="password" name="" required="">
                     </div>
-                    <div class="field-group" [ngClass]="{'field-error': ((userForm?.controls?.password?.errors || userForm.value.password !== userForm.value.confirmPassword) && isSubmitted)}">
+                    <div class="field-group">
                         <label>{{'passwordConfirmation' | translate}}</label>
-                        <span class="error-span" *ngIf="((userForm?.controls?.confirmPassword?.errors && isSubmitted) || 
+                        <!-- <span class="error-span" *ngIf="((userForm?.controls?.confirmPassword?.errors && isSubmitted) || 
                     ((userForm.value.password !== userForm.value.confirmPassword) && isSubmitted))">
                     {{'pleaseEnterConfirmPassword' | translate}}
-                        </span>
+                        </span> -->
                         <input type="password" formControlName="confirmPassword" name="" required="">
                     </div>
                 </div>
 
                 <div class="field-row">
-                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.phone?.errors && isSubmitted}">
+                    <div class="field-group">
                         <label>{{'phone' | translate}}</label>
-                        <span class="error-span" *ngIf="(userForm?.controls?.phone?.errors && isSubmitted)">
+                        <!-- <span class="error-span" *ngIf="(userForm?.controls?.phone?.errors && isSubmitted)">
                             {{'pleaseEnterPhone' | translate}}
-                        </span>
+                        </span> -->
                         <input type="text" formControlName="phone" name="" required="">
                     </div>
-                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.address?.errors && isSubmitted}">
+                    <div class="field-group">
                         <label>{{'address' | translate}}</label>
-                        <span class="error-span" *ngIf="(userForm?.controls?.address?.errors && isSubmitted)">
+                        <!-- <span class="error-span" *ngIf="(userForm?.controls?.address?.errors && isSubmitted)">
                             {{'pleaseEnterAddress' | translate}}
-                        </span>
+                        </span> -->
                         <input type="text" name="" required="" formControlName="address">
                     </div>
                 </div>
 
                 <div class="field-row">
-                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.postalCode?.errors && isSubmitted}">
+                    <div class="field-group">
                         <label>{{'postalCode' | translate}}</label>
-                        <span class="error-span" *ngIf="(userForm?.controls?.postalCode?.errors && isSubmitted)">
+                        <!-- <span class="error-span" *ngIf="(userForm?.controls?.postalCode?.errors && isSubmitted)">
                             {{'pleaseEnterPostalCode' | translate}}
-                        </span>
+                        </span> -->
                         <input type="text" formControlName="postalCode" name="" required="">
                     </div>
-                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.city?.errors && isSubmitted}">
+                    <div class="field-group">
                         <label>{{'city' | translate}}</label>
-                        <span class="error-span" *ngIf="(userForm?.controls?.city?.errors && isSubmitted)">
+                        <!-- <span class="error-span" *ngIf="(userForm?.controls?.city?.errors && isSubmitted)">
                             {{'pleaseEnterCity' | translate}}
-                        </span>
+                        </span> -->
                         <input type="text" formControlName="city" name="" required="">
                     </div>
                 </div>
@@ -154,12 +154,12 @@
                 </div>
 
                 <div class="field-row">
-                    <div class="field-group" [ngClass]="{'field-error': userForm?.controls?.location?.errors && isSubmitted}">
+                    <div class="field-group">
                         <label>{{'location' | translate}}</label>
                         <input type="text" formControlName="location" name="" required="">
-                        <span class="error-span" *ngIf="(userForm?.controls?.location?.errors && isSubmitted)">
+                        <!-- <span class="error-span" *ngIf="(userForm?.controls?.location?.errors && isSubmitted)">
                             {{'pleaseEnterLocation' | translate}}
-                        </span>
+                        </span> -->
                     </div>
                     <div class="field-group d-flex gap-20 align-end">
                         <label>{{'active' | translate}}</label>
