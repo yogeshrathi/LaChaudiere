@@ -1,6 +1,6 @@
 export const environment = {
-  production: false,
-  apiSign: "http://localhost:8080/sign",
-  apiUrl: "http://localhost:8080/api/",
+  production: true,
+  apiUrl: "https://la-chaudiere.herokuapp.com/api/",
+  apiSign: "https://la-chaudiere.herokuapp.com/sign",
   languageFileUrl: './assets/i18n/'
 };

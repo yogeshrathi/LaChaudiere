@@ -18,9 +18,9 @@
             <div class="pod-heading-row">
                 <!-- <div class="number po-col">{{'customerNumber' | translate}}</div> -->
                 <div class="client po-col">{{'clientId' | translate}}</div>
-                <div class="name po-col">{{'name' | translate}}</div>
+                <!-- <div class="name po-col">{{'name' | translate}}</div> -->
                 <!-- <div class="email po-col">{{'email' | translate}}</div> -->
-                <!-- <div class="c-name po-col">Company Name</div> -->
+                <div class="c-name po-col">{{'companyName' | translate}}</div>
                 <!-- <div class="city po-col">City</div>
                 <div class="phone po-col">Phone</div>
                 <div class="address po-col">Address</div> -->
@@ -30,9 +30,9 @@
             <div class="pod-data-row" *ngFor="let item of users | filter:search; let i = index">
                 <!-- <div class="number po-col">{{'customer' | translate}} {{i + 1}}</div> -->
                 <div class="client po-col">{{item.clientId}}</div>
-                <div class="name po-col">{{item.name}}</div>
+                <!-- <div class="name po-col">{{item.name}}</div> -->
                 <!-- <div class="email po-col">{{item.email}}</div> -->
-                <!-- <div class="c-name po-col">{{item.companyName}}</div> -->
+                <div class="c-name po-col">{{item.companyName ?? '-'}}</div>
                 <!-- <div class="city po-col">{{item.city}}</div>
                 <div class="phone po-col">{{item.phone}}</div>
                 <div class="address po-col">{{item.address}}</div> -->
@@ -68,7 +68,7 @@
                         <!-- <span class="error-span" *ngIf="(userForm?.controls?.name?.errors && isSubmitted)">
                             {{'pleaseEnterName' | translate}}
                         </span> -->
-                        <input type="text" formControlName="name" name="" required="">
+                        <input type="text" formControlName="name" name="">
                     </div>
                 </div>
                 <div class="field-row">
@@ -88,7 +88,7 @@
                     ((userForm.value.password !== userForm.value.confirmPassword) && isSubmitted))">
                     {{'pleaseEnterPassword' | translate}}
                         </span> -->
-                        <input type="password" formControlName="password" name="" required="">
+                        <input type="password" formControlName="password" name="">
                     </div>
                     <div class="field-group">
                         <label>{{'passwordConfirmation' | translate}}</label>
@@ -96,7 +96,7 @@
                     ((userForm.value.password !== userForm.value.confirmPassword) && isSubmitted))">
                     {{'pleaseEnterConfirmPassword' | translate}}
                         </span> -->
-                        <input type="password" formControlName="confirmPassword" name="" required="">
+                        <input type="password" formControlName="confirmPassword" name="">
                     </div>
                 </div>
 
@@ -106,14 +106,14 @@
                         <!-- <span class="error-span" *ngIf="(userForm?.controls?.phone?.errors && isSubmitted)">
                             {{'pleaseEnterPhone' | translate}}
                         </span> -->
-                        <input type="text" formControlName="phone" name="" required="">
+                        <input type="text" formControlName="phone" name="">
                     </div>
                     <div class="field-group">
                         <label>{{'address' | translate}}</label>
                         <!-- <span class="error-span" *ngIf="(userForm?.controls?.address?.errors && isSubmitted)">
                             {{'pleaseEnterAddress' | translate}}
                         </span> -->
-                        <input type="text" name="" required="" formControlName="address">
+                        <input type="text" name="" formControlName="address">
                     </div>
                 </div>
 
@@ -123,14 +123,14 @@
                         <!-- <span class="error-span" *ngIf="(userForm?.controls?.postalCode?.errors && isSubmitted)">
                             {{'pleaseEnterPostalCode' | translate}}
                         </span> -->
-                        <input type="text" formControlName="postalCode" name="" required="">
+                        <input type="text" formControlName="postalCode" name="">
                     </div>
                     <div class="field-group">
                         <label>{{'city' | translate}}</label>
                         <!-- <span class="error-span" *ngIf="(userForm?.controls?.city?.errors && isSubmitted)">
                             {{'pleaseEnterCity' | translate}}
                         </span> -->
-                        <input type="text" formControlName="city" name="" required="">
+                        <input type="text" formControlName="city" name="">
                     </div>
                 </div>
 
@@ -156,7 +156,7 @@
                 <div class="field-row">
                     <div class="field-group">
                         <label>{{'location' | translate}}</label>
-                        <input type="text" formControlName="location" name="" required="">
+                        <input type="text" formControlName="location" name="">
                         <!-- <span class="error-span" *ngIf="(userForm?.controls?.location?.errors && isSubmitted)">
                             {{'pleaseEnterLocation' | translate}}
                         </span> -->

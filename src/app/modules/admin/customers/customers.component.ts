@@ -24,17 +24,17 @@ export class CustomersComponent implements OnInit {
 
   userForm = new FormGroup({
     clientId: new FormControl('', Validators.required),
-    name: new FormControl(""),
-    email: new FormControl("", [Validators.required, Validators.email]),
-    password: new FormControl(""),
-    confirmPassword: new FormControl(""),
-    phone: new FormControl(""),
-    address: new FormControl(""),
-    postalCode: new FormControl(""),
-    city: new FormControl(""),
-    companyName: new FormControl("", [Validators.required]),
-    role: new FormControl("client", [Validators.required]),
-    location: new FormControl(""),
+    name: new FormControl(''),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl(''),
+    confirmPassword: new FormControl(''),
+    phone: new FormControl(''),
+    address: new FormControl(''),
+    postalCode: new FormControl(''),
+    city: new FormControl(''),
+    companyName: new FormControl('', [Validators.required]),
+    role: new FormControl("client"),
+    location: new FormControl(''),
     isActive: new FormControl(true),
     monday: new FormControl(false),
     tuesday: new FormControl(false),
@@ -86,9 +86,15 @@ export class CustomersComponent implements OnInit {
     }, 10);
   }
 
-  updateUser() {
+  updateUser(): void {
     this.isSubmitted = true;
-    if (this.userForm.valid && (this.userForm.value.password == this.userForm.value.confirmPassword)) {
+    if(this.userForm.value.password && (this.userForm.value.password != this.userForm.value.confirmPassword)){
+      return;
+    }
+    // if(this.userForm.value.password && (this.userForm.value.password == this.userForm.value.confirmPassword)){
+    //   return false;
+    // }
+    if (this.userForm.valid) {
       if (this.userForm.value._id) {
         this.userService.updateUser(this.userForm.value).subscribe(res => {
           if (res) {

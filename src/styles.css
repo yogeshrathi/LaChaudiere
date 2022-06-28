@@ -739,21 +739,23 @@ h2 {
     width: 26%;
 }
 
-.po-data-table.customer .pod-heading-row .po-col.number {
+
+/* .po-data-table.customer .pod-heading-row .po-col.number {
     width: 15%;
-}
+} */
 
 .po-data-table.customer .pod-heading-row .po-col.client {
     width: 35%;
 }
 
-.po-data-table.customer .pod-heading-row .po-col.name {
+.po-data-table.customer .pod-heading-row .po-col.c-name {
     width: 35%;
 }
 
-.po-data-table.customer .pod-heading-row .po-col.email {
+
+/* .po-data-table.customer .pod-heading-row .po-col.email {
     width: 25%;
-}
+} */
 
 
 /* .po-data-table.customer .pod-heading-row .po-col.c-name {
@@ -772,21 +774,23 @@ h2 {
     width: 15%;
 }
 
-.po-data-table.customer .pod-data-row .po-col.number {
+
+/* .po-data-table.customer .pod-data-row .po-col.number {
     width: 15%;
-}
+} */
 
 .po-data-table.customer .pod-data-row .po-col.client {
     width: 35%;
 }
 
-.po-data-table.customer .pod-data-row .po-col.name {
+.po-data-table.customer .pod-data-row .po-col.c-name {
     width: 35%;
 }
 
-.po-data-table.customer .pod-data-row .po-col.email {
+
+/* .po-data-table.customer .pod-data-row .po-col.email {
     width: 25%;
-}
+} */
 
 
 /* .po-data-table.customer .pod-data-row .po-col.c-name {
