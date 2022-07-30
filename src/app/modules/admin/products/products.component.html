@@ -23,7 +23,7 @@
                 <div class="action po-col">{{'delete' | translate}}</div>
             </div>
             <div class="pod-data-row" *ngFor="let item of products | filter:search; let i = index">
-                <div class="number po-col">{{'product' | translate}} {{item.product_number}}</div>
+                <div class="number po-col">{{item.product_number}}</div>
                 <div class="name po-col">{{item.product_name}}</div>
                 <div class="img po-col" (click)="onImageClick(item)"><img src="{{item.imageUrl}}" alt=""></div>
                 <div class="action po-col"><span>Action</span><a href="javascript: void(0)" (click)="openModal(template, true, item)">{{'editItem' | translate}}</a></div>
