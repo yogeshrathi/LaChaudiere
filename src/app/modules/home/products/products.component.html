@@ -15,7 +15,7 @@
                 <div class="action po-col">Action</div>
             </div>
             <div class="pod-data-row" *ngFor="let item of products | filter:search; let i = index">
-                <div class="number po-col">{{'product' | translate}} {{i + 1}}</div>
+                <div class="number po-col">{{item.product_number}}</div>
                 <div class="name po-col">{{item.product_name}}</div>
                 <div class="img po-col" (click)="onImageClick(item)"><img src="{{item.imageUrl}}" alt=""></div>
                 <div class="qty po-col">
